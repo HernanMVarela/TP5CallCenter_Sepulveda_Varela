@@ -4,8 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP5_CallCenter_Sepulveda_Varela", "TP5_CallCenter_Sepulveda_Varela.csproj", "{2779E013-8B27-4C47-9082-025ECABA05DC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BBF06667-B0C9-47BC-B06F-EA313384D601} = {BBF06667-B0C9-47BC-B06F-EA313384D601}
+		{96E752CB-1BF9-4460-944C-D9FB437A2843} = {96E752CB-1BF9-4460-944C-D9FB437A2843}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicios", "..\Servicios\Servicios.csproj", "{96E752CB-1BF9-4460-944C-D9FB437A2843}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BBF06667-B0C9-47BC-B06F-EA313384D601} = {BBF06667-B0C9-47BC-B06F-EA313384D601}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "..\Dominio\Dominio.csproj", "{BBF06667-B0C9-47BC-B06F-EA313384D601}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +30,10 @@ Global
 		{96E752CB-1BF9-4460-944C-D9FB437A2843}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96E752CB-1BF9-4460-944C-D9FB437A2843}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96E752CB-1BF9-4460-944C-D9FB437A2843}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBF06667-B0C9-47BC-B06F-EA313384D601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBF06667-B0C9-47BC-B06F-EA313384D601}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBF06667-B0C9-47BC-B06F-EA313384D601}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBF06667-B0C9-47BC-B06F-EA313384D601}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
