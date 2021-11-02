@@ -10,4 +10,5 @@ namespace Dominio
     {
         public int ID { get; set; }
         public string Tipo { get; set; }
+    }
 }
