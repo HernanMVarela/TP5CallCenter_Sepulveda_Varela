@@ -38,5 +38,3 @@ insert into Usuarios (NombreUsuario, Clave, IDTipo, Nombre, Apellido, Telefono, 
 ('hvarela','Talar.2021', 1, 'Hernan', 'Varela', '1234567','hernan@mail.com'),
 ('csepulveda', 'Talar.2021', 2, 'Christian', 'Sepulveda', '987645','christian@mail.com'),
 ('Empleado','Talar.2021', 3,'Umpa','Lumpa','123235','umpalumpa@mail.com')
-
-select * from Usuarios

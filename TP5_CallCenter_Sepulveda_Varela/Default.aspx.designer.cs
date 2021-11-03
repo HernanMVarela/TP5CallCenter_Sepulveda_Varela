@@ -15,12 +15,12 @@ namespace TP5_CallCenter_Sepulveda_Varela
     {
 
         /// <summary>
-        /// GridUsuarios control.
+        /// GridUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridUsuarios;
+        protected global::System.Web.UI.WebControls.GridView GridUser;
     }
 }
