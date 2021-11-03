@@ -10,5 +10,11 @@ namespace Dominio
     {
         public int ID { get; set; }
         public string Tipo { get; set; }
+
+        public TipoUsuario()
+        {
+            Tipo = "Sin tipo";
+            ID = 0;
+        }
     }
 }

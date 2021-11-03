@@ -3,8 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ListaDeUsuarios</h1>
-        <asp:GridView ID="GridUsuarios" runat="server"></asp:GridView>
+        <h1>Lista de usuarios</h1>
     </div>
 
     <div class="row">
