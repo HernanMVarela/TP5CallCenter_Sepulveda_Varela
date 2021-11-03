@@ -23,7 +23,16 @@ namespace TP5_CallCenter_Sepulveda_Varela
         {
             UsuarioServicio Service = new UsuarioServicio();
             Lusr = Service.Listar();
-            ListaUsuarios.DataSource = Lusr;
+            GridUser.DataSource = Lusr;
+            GridUser.DataBind();
+        }
+
+        protected void GridUser_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[0].Visible = false;
+            e.Row.Cells[1].Visible = false;
+            e.Row.Cells[6].Visible = false;
+
         }
     }
 }

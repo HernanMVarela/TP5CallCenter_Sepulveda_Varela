@@ -1,0 +1,21 @@
+﻿.contenedor {
+    margin: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    border: 2px solid #101010;
+    border-radius: 10px;
+    background-color: #aaaaaa;
+    height: 95%;
+}
+
+.cuadro_uno {
+    padding: 10px;
+    border-radius: 15px;
+    border: 5px solid #000000;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 10px;
+    min-width: 300px;
+    min-height: 400px;
+    background-color: #555555;
+}
