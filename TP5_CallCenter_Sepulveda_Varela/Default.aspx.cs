@@ -12,8 +12,9 @@ namespace TP5_CallCenter_Sepulveda_Varela
 {
     public partial class _Default : Page
     {
-        private List<Usuario> Lusr;
-              
+        public List<Usuario> Lusr;
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             cargar_usuario();
@@ -21,18 +22,19 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         private void cargar_usuario()
         {
+            
             UsuarioServicio Service = new UsuarioServicio();
             Lusr = Service.Listar();
-            GridUser.DataSource = Lusr;
-            GridUser.DataBind();
+            lblNombre.Text = Lusr[0].Nombre + " " + Lusr[0].Apellido;
+            lblUsuario.Text =Lusr[0].NombreUsuario;
+            lblTelefono.Text ="Telefono: " + Lusr[0].Telefono;
+            lblEmail.Text = "Correo: " + Lusr[0].Email;
+
         }
 
-        protected void GridUser_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void btnNuevoTicket_Click(object sender, EventArgs e)
         {
-            e.Row.Cells[0].Visible = false;
-            e.Row.Cells[1].Visible = false;
-            e.Row.Cells[6].Visible = false;
-
+            Response.Redirect("/NuevoTicket.aspx");
         }
     }
 }
