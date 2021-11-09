@@ -12,7 +12,7 @@ namespace Dominio
         public string Apellido { get; set; }
         public string Email { get; set; }
         public string Telefono { get; set; }
-        public int ID { get; set; }
+        //public int ID { get; set; }
 
         public Persona()
         {
@@ -20,7 +20,7 @@ namespace Dominio
             Apellido = "Sin Apellido";
             Email = "Sin Email";
             Telefono = "Sin Telefono";
-            ID = 0;
+            //ID = 0;
         }
     }
 }

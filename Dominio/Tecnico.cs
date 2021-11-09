@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Usuario:Persona
+    public class Tecnico:Persona
     {
-        public TipoUsuario Tipo { get; set; }
-        public string NombreUsuario { get; set; }
-        public string Clave { get; set; }
+        public string EspecialidadTecnico { get; set; }
         public int ID { get; set; }
-
 
     }
 }
