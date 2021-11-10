@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="AccesoDB.cs" />
     <Compile Include="ClienteServicio.cs" />
+    <Compile Include="IncidenciaServicio.cs" />
     <Compile Include="TecnicoServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TicketServicio.cs" />
     <Compile Include="UsuarioServicio.cs" />
   </ItemGroup>
   <ItemGroup>
