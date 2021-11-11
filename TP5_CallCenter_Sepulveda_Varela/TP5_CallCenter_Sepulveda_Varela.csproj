@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AltaCliente.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -120,7 +121,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="NuevoTecnico.aspx" />
+    <Content Include="AltaTecnico.aspx" />
     <Content Include="NuevoTicket.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -241,6 +242,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AltaCliente.aspx.cs">
+      <DependentUpon>AltaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaCliente.aspx.designer.cs">
+      <DependentUpon>AltaCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -274,12 +282,12 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="NuevoTecnico.aspx.cs">
-      <DependentUpon>NuevoTecnico.aspx</DependentUpon>
+    <Compile Include="AltaTecnico.aspx.cs">
+      <DependentUpon>AltaTecnico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="NuevoTecnico.aspx.designer.cs">
-      <DependentUpon>NuevoTecnico.aspx</DependentUpon>
+    <Compile Include="AltaTecnico.aspx.designer.cs">
+      <DependentUpon>AltaTecnico.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuevoTicket.aspx.cs">
       <DependentUpon>NuevoTicket.aspx</DependentUpon>

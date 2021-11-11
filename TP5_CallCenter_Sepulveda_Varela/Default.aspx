@@ -12,7 +12,7 @@
                 </div>
                 <div class="row m-2">
                     <div class="col-12">   
-                        <asp:GridView ID="gvTickets" AutoGenerateColumns="true" runat="server"></asp:GridView>
+                        <asp:GridView ID="gvTickets" runat="server"></asp:GridView>
                     </div>
                 </div>
                 <div class="row m-4">

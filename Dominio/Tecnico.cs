@@ -11,5 +11,10 @@ namespace Dominio
         public string EspecialidadTecnico { get; set; }
         public int ID { get; set; }
 
+        public override string ToString()
+        {
+            return string.Format("{0},{1},{2},{3},{4}", Nombre, Apellido, Email, Telefono, EspecialidadTecnico);
+        }
+
     }
 }

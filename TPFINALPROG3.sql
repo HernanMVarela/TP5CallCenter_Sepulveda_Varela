@@ -91,9 +91,9 @@ insert into TipoCuenta (Tipo) values
 ('Telefonista')
 
 insert into Usuarios (NombreUsuario, Clave, IDTipo, Nombre, Apellido, Telefono, Mail) values
-('hvarela','Talar.2021', 1, 'Hernan', 'Varela', '1234567','hernan@mail.com'),
-('csepulveda', 'Talar.2021', 2, 'Christian', 'Sepulveda', '987645','christian@mail.com'),
-('Empleado','Talar.2021', 3,'Umpa','Lumpa','123235','umpalumpa@mail.com')
+('hvarela','Segura2021', 1, 'Hernan', 'Varela', '1234567','hernan@mail.com'),
+('csepulveda', 'Segura2021', 2, 'Christian', 'Sepulveda', '987645','christian@mail.com'),
+('Empleado','Segura2021', 3,'Umpa','Lumpa','123235','umpalumpa@mail.com')
 
 INSERT INTO ESPECIALIDADES (NOMBRE) VALUES 
 ('Licenciamiento'),
@@ -167,6 +167,6 @@ INSERT INTO TICKETS(ID,IDESTADO,IDUSUARIO,IDTECNICO,IDCLIENTE,IDINCIDENCIAS,FECH
 (2,6,1,2,1003,3,'10/10/2021','9/11/2021')
 
 
-
+--SELECT T.ID as TID, I.ID as IID, I.DESCRIPCION AS IDescripcion, CI.NOMBRE AS ICategoria, U.Nombre AS UNombre, U.Apellido as UApellido, U.NombreUsuario as UUser, C.NOMBRE AS CNombre, TC.NOMBRE as CTipo, C.CUIT as CCuit, C.EMAIL as CMail, C.TELEFONO as CTelefono, TE.Nombre AS TENombre, TE.Apellido AS TEApellido, TE.Mail AS TEMail, TE.Telefono AS TETelefono, ES.NOMBRE AS TEEspecialidad, E.NOMBRE AS ENombre, T.FECHA_CREACION AS FCreacion, T.FECHA_CIERRE as FCierre FROM TICKETS T INNER JOIN Usuarios U ON U.ID=T.IDUSUARIO INNER JOIN CLIENTES C ON C.ID=T.IDCLIENTE INNER JOIN TIPOCLIENTES TC ON TC.ID=C.IDTIPO INNER JOIN TECNICOS TE ON TE.ID=T.IDTECNICO INNER JOIN ESPECIALIDADES ES ON ES.ID=TE.IDESP INNER JOIN INCIDENCIAS I ON I.ID=T.IDINCIDENCIAS INNER JOIN CATEGORIASINCIDENCIAS CI ON CI.ID=I.IDCATEGORIA INNER JOIN ESTADOS E ON E.ID=T.IDESTADO
 
 

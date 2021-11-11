@@ -15,6 +15,10 @@ namespace Dominio
         public string Email { get; set; }
         public string Telefono { get; set; }
 
+        public override string ToString()
+        {
+            return string.Format("{0},{1},{2},{3},{4}", RazonSocial,Cuit,Email,Telefono,Tipo);
+        }
         public Cliente()
         {
             ID = 0;
