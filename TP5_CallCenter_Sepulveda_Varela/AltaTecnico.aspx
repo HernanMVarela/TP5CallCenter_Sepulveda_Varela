@@ -4,7 +4,7 @@
     <div class="container-fluid cuadro_uno h-auto">
         <div class="row mb-4">
             <div class="col-12 d-flex justify-content-evenly align-items-center">
-                <asp:Label ID="lblTitutlo" runat="server" Text="Nuevo técnico"></asp:Label> 
+                <asp:Label ID="lblTitutlo" runat="server" Font-Size="48px" Text="Nuevo técnico"></asp:Label> 
             </div>
         </div>
         <div class="row mb-3 mt-3">
@@ -12,13 +12,13 @@
                 <h3>Nombre: </h3>
             </div>
             <div class="col-3 d-flex justify-content-start">
-                <asp:TextBox ID="txbNombre" Width="250px" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbNombre" Width="250px" Text="Nombre" runat="server"></asp:TextBox>
             </div>
             <div class="col-2 d-flex justify-content-end">
                 <h3>Apellido: </h3>
             </div>
             <div class="col d-flex justify-content-start">
-                <asp:TextBox ID="txbApellido" Width="250px" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbApellido" Width="250px" Text="Apellido" runat="server"></asp:TextBox>
             </div>
         </div>
         <div class="row mb-3 mt-3">
@@ -26,7 +26,7 @@
                 <h3>Correo electrónico: </h3>
             </div>
             <div class="col d-flex justify-content-start">
-                <asp:TextBox ID="txbEmail" Width="350px" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbEmail" Width="350px" Text="Correo" runat="server"></asp:TextBox>
             </div>
         </div>
         <div class="row mb-3 mt-3">
@@ -34,7 +34,7 @@
                 <h3>Teléfono: </h3>
             </div>
             <div class="col d-flex justify-content-start">
-                <asp:TextBox ID="txbTelefono" Width="350px" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbTelefono" Width="350px" Text="Telefono" runat="server"></asp:TextBox>
             </div>
         </div>
         <div class="row mb-3 mt-3">
@@ -50,7 +50,7 @@
                 <asp:Button ID="btnAceptar" CssClass="btn btn-success" runat="server" Text="Aceptar" />
             </div>
             <div class="col-6 d-flex justify-content-center">
-                <asp:Button ID="btnCancelar" CssClass="btn btn-danger" runat="server" Text="Cancelar" />
+                <asp:Button ID="btnCancelar" CssClass="btn btn-danger" OnClick="btnCancelar_Click" runat="server" Text="Cancelar"/>
             </div>
         </div>
     </div>

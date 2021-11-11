@@ -25,5 +25,10 @@ namespace TP5_CallCenter_Sepulveda_Varela
             ddlEspecialidad.DataSource = LEsp;
             ddlEspecialidad.DataBind();
         }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("NuevoTicket.aspx", false);
+        }
     }
 }
