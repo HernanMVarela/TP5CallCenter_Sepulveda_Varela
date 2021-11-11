@@ -13,5 +13,15 @@ namespace TP5_CallCenter_Sepulveda_Varela
         {
 
         }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("NuevoTicket.aspx");
+        }
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

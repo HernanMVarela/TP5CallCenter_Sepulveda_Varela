@@ -8,12 +8,12 @@ namespace Dominio
 {
     public class Tecnico:Persona
     {
-        public string EspecialidadTecnico { get; set; }
+        public Especialidad EspecialidadTecnico { get; set; }
         public int ID { get; set; }
 
         public override string ToString()
         {
-            return string.Format("{0},{1},{2},{3},{4}", Nombre, Apellido, Email, Telefono, EspecialidadTecnico);
+            return string.Format("{0},{1},{2},{3},{4}", Nombre, Apellido, Email, Telefono, EspecialidadTecnico.Nombre);
         }
 
     }

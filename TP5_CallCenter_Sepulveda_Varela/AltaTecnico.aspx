@@ -12,13 +12,17 @@
                 <h3>Nombre: </h3>
             </div>
             <div class="col-3 d-flex justify-content-start">
-                <asp:TextBox ID="txbNombre" Width="250px" Text="Nombre" runat="server"></asp:TextBox>
+                <asp:UpdatePanel runat="server">
+                <ContentTemplate>
+                <asp:TextBox ID="txbNombre" Width="250px" runat="server"></asp:TextBox>
+                </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
             <div class="col-2 d-flex justify-content-end">
                 <h3>Apellido: </h3>
             </div>
             <div class="col d-flex justify-content-start">
-                <asp:TextBox ID="txbApellido" Width="250px" Text="Apellido" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbApellido" Width="250px" runat="server"></asp:TextBox>
             </div>
         </div>
         <div class="row mb-3 mt-3">
@@ -26,7 +30,7 @@
                 <h3>Correo electrónico: </h3>
             </div>
             <div class="col d-flex justify-content-start">
-                <asp:TextBox ID="txbEmail" Width="350px" Text="Correo" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbEmail" Width="350px" runat="server"></asp:TextBox>
             </div>
         </div>
         <div class="row mb-3 mt-3">
@@ -34,7 +38,7 @@
                 <h3>Teléfono: </h3>
             </div>
             <div class="col d-flex justify-content-start">
-                <asp:TextBox ID="txbTelefono" Width="350px" Text="Telefono" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbTelefono" Width="350px" runat="server"></asp:TextBox>
             </div>
         </div>
         <div class="row mb-3 mt-3">
@@ -47,10 +51,10 @@
         </div>
         <div class="row mb-3 mt-3">
             <div class="col-6 d-flex justify-content-center">
-                <asp:Button ID="btnAceptar" CssClass="btn btn-success" runat="server" Text="Aceptar" />
+                <asp:Button ID="btnAceptar" CssClass="btn btn-success" OnClick="btnAceptar_Click" runat="server" Text="Aceptar" UseSubmitBehavior="false"/>
             </div>
             <div class="col-6 d-flex justify-content-center">
-                <asp:Button ID="btnCancelar" CssClass="btn btn-danger" OnClick="btnCancelar_Click" runat="server" Text="Cancelar"/>
+                <asp:Button ID="btnCancelar" CssClass="btn btn-danger" OnClick="btnCancelar_Click" runat="server" Text="Cancelar" UseSubmitBehavior="false" />
             </div>
         </div>
     </div>

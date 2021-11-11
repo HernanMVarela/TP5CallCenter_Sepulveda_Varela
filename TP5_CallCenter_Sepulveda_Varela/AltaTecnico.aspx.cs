@@ -9,26 +9,55 @@ using Servicios;
 
 namespace TP5_CallCenter_Sepulveda_Varela
 {
-    public partial class NuevoTecnico : System.Web.UI.Page
+    public partial class NuevoTecnico : Page
     {
+        public Tecnico nuevo = new Tecnico();
         public List<Especialidad> LEsp;
+        public string dato = "";
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            cargar_especialidad();
+            if (!IsPostBack)
+            {
+                cargar_especialidad();
+            }
         }
 
         private void cargar_especialidad()
         {
-            EspecialidadServicio Servicio = new EspecialidadServicio();
-            LEsp = Servicio.Listar();
+            try
+            {
+                EspecialidadServicio Servicio = new EspecialidadServicio();
+                LEsp = Servicio.Listar();
 
-            ddlEspecialidad.DataSource = LEsp;
-            ddlEspecialidad.DataBind();
+                ddlEspecialidad.DataSource = LEsp;
+                ddlEspecialidad.DataTextField = "Nombre";
+                ddlEspecialidad.DataValueField = "ID";
+                ddlEspecialidad.DataBind();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
+        }
+
+        private void AgregarTecnico()
+        {
+            
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("NuevoTicket.aspx", false);
+        }
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            dato = txbNombre.Text;
+            txbApellido.Text = dato;
+            //Response.Redirect("NuevoTicket.aspx", false);
         }
     }
 }

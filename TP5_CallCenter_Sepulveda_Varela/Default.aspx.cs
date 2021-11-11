@@ -45,7 +45,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         protected void btnNuevoTicket_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/NuevoTicket.aspx");
+            Response.Redirect("NuevoTicket.aspx");
         }
     }
 }

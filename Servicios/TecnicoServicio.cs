@@ -21,7 +21,7 @@ namespace Servicios
                 {
                     Tecnico Aux = new Tecnico();
                     Aux.ID = (int)Datos.Lector["ID"];
-                    Aux.EspecialidadTecnico = (string)Datos.Lector["EspecialidadTecnico"];
+                    Aux.EspecialidadTecnico.Nombre = (string)Datos.Lector["EspecialidadTecnico"];
                     Aux.Nombre = (string)Datos.Lector["Nombre"];
                     Aux.Apellido = (string)Datos.Lector["Apellido"];
                     Aux.Telefono = (string)Datos.Lector["Telefono"];

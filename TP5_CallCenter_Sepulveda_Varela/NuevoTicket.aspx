@@ -23,7 +23,7 @@
                 <asp:TextBox ID="txbCliente" class="w-100" MaxLength="100" Wrap="false" runat="server"></asp:TextBox>
             </div>
             <div class="col-2 d-flex justify-content-center align-items-center">
-                <asp:Button ID="btnAgregarCliente" class="btn btn-primary" runat="server" Text="Agregar" />
+                <asp:Button ID="btnAgregarCliente" class="btn btn-primary" OnClick="btnAgregarCliente_Click" runat="server" Text="Agregar" UseSubmitBehavior="false"/>
             </div>
         </div>
         <div class="row my-2 me-2">
@@ -34,7 +34,7 @@
                 <asp:TextBox ID="txbTecnico" class="w-100" MaxLength="100" Wrap="false" runat="server"></asp:TextBox>
             </div>
             <div class="col-2 d-flex justify-content-center align-items-center">
-                <asp:Button ID="btnAgregarTecnico" class="btn btn-primary" runat="server" Text="Agregar" />
+                <asp:Button ID="btnAgregarTecnico" class="btn btn-primary" OnClick="btnAgregarTecnico_Click" runat="server" Text="Agregar" UseSubmitBehavior="false"/>
             </div>
         </div>
         <div class="row mb-2 mt-3 me-2">
@@ -46,10 +46,19 @@
             </div>
         </div>
         <div class="row mb-2 mt-3 me-2">
+            <div class="col-6 d-flex justify-content-center align-items-center">
+                <asp:Button ID="btnAceptar" CssClass="btn btn-success" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" UseSubmitBehavior="false"/>
+            </div>
+            <div class="col-6 d-flex justify-content-center align-items-center">
+                <asp:Button ID="btnCancelar" CssClass="btn btn-danger" runat="server" OnClick="btnCancelar_Click" Text="Cancelar" UseSubmitBehavior="false"/>
+            </div>
+
+        </div>
+        <div class="row mb-2 mt-3 me-2">
             <div class="col-12 d-flex justify-content-center align-self-end">
                 <p style="font-size:20px"><%: DateTime.Now %></p>
             </div>
-       </div>
+        </div>
         
     </div>
 

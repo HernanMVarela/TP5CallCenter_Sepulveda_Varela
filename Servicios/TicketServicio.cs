@@ -59,7 +59,7 @@ namespace Servicios
                         Aux.PTecnico.Apellido = (string)Datos.Lector["TEApellido"];
                         Aux.PTecnico.Email = (string)Datos.Lector["TEMail"];
                         Aux.PTecnico.Telefono = (string)Datos.Lector["TETelefono"];
-                        Aux.PTecnico.EspecialidadTecnico = (string)Datos.Lector["TEEspecialidad"];
+                        Aux.PTecnico.EspecialidadTecnico.Nombre = (string)Datos.Lector["TEEspecialidad"];
                     }
                     Aux.Fecha_Creacion = (DateTime)Datos.Lector["FCreacion"];
                     Aux.Fecha_Cierre = (DateTime)Datos.Lector["FCierre"];

@@ -17,13 +17,13 @@
                 </div>
                 <div class="row m-4">
                     <div class="col-4 d-flex justify-content-center align-items-center">
-                        <asp:Button ID="btnNuevoTicket" class="btn btn-outline-info" OnClick="btnNuevoTicket_Click" runat="server" Text="Nuevo Ticket" />
+                        <asp:Button ID="btnNuevoTicket" class="btn btn-outline-info" OnClick="btnNuevoTicket_Click" runat="server" Text="Nuevo Ticket" UseSubmitBehavior="false"/>
                     </div>
                     <div class="col-4 d-flex justify-content-center align-items-center">
-                        <asp:Button ID="btnAsignar" class="btn btn-outline-info" runat="server" Text="Asignar" />
+                        <asp:Button ID="btnAsignar" class="btn btn-outline-info" runat="server" Text="Asignar" UseSubmitBehavior="false"/>
                     </div>
                     <div class="col-4 d-flex justify-content-center align-items-center">
-                        <asp:Button ID="btnModificar" class="btn btn-outline-info" runat="server" Text="Modificar" />
+                        <asp:Button ID="btnModificar" class="btn btn-outline-info" runat="server" Text="Modificar" UseSubmitBehavior="false"/>
                     </div>
                 </div>
                 

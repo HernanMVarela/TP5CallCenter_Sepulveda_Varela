@@ -13,5 +13,25 @@ namespace TP5_CallCenter_Sepulveda_Varela
         {
 
         }
+
+        protected void btnAgregarCliente_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AltaCliente.aspx");
+        }
+
+        protected void btnAgregarTecnico_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AltaTecnico.aspx");
+        }
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
 }
