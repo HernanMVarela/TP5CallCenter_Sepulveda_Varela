@@ -120,6 +120,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="NuevoTecnico.aspx" />
     <Content Include="NuevoTicket.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -272,6 +273,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoTecnico.aspx.cs">
+      <DependentUpon>NuevoTecnico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuevoTecnico.aspx.designer.cs">
+      <DependentUpon>NuevoTecnico.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuevoTicket.aspx.cs">
       <DependentUpon>NuevoTicket.aspx</DependentUpon>

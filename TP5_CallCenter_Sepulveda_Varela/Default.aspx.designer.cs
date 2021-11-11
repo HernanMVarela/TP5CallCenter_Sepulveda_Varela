@@ -15,13 +15,13 @@ namespace TP5_CallCenter_Sepulveda_Varela
     {
 
         /// <summary>
-        /// Control tblTickets.
+        /// Control gvTickets.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblTickets;
+        protected global::System.Web.UI.WebControls.GridView gvTickets;
 
         /// <summary>
         /// Control btnNuevoTicket.

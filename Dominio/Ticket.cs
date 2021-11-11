@@ -10,10 +10,11 @@ namespace Dominio
     {
         
         public int ID { get; set; }
-        public int IDEstado { get; set; }
-        public int IDTecnico { get; set; }
-        public int IDCliente { get; set; }
-        public int IDIncidencia { get; set; }
+        public string Estado { get; set; }
+        public Cliente PCliente { get; set; }
+        public Tecnico PTecnico { get; set; }
+        public Usuario PResponsable { get; set; }
+        public Incidencia PIncidencia { get; set; }
         public DateTime Fecha_Creacion { get; set; }
         public DateTime Fecha_Cierre { get; set; }
 

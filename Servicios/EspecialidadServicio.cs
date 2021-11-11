@@ -7,32 +7,31 @@ using Dominio;
 
 namespace Servicios
 {
-    public class IncidenciaServicio
+    public class EspecialidadServicio
     {
-        public List<Incidencia> Listar()
+        public List<Especialidad> Listar()
         {
-            List<Incidencia> Lista = new List<Incidencia>();
+            List<Especialidad> Lista = new List<Especialidad>();
             AccesoDB Datos = new AccesoDB();
             try
             {
-                Datos.SetearComando("SELECT I.ID, I.IDCategoria, I.Descripcion FROM Incidencias I");
+                Datos.SetearComando("SELECT E.ID AS EID, E.NOMBRE AS ESPECIALIDAD FROM ESPECIALIDADES E");
                 Datos.LecturaDB();
                 while (Datos.Lector.Read())
                 {
-                    Incidencia Aux = new Incidencia();
-                    Aux.ID = (int)Datos.Lector["ID"];
-                    Aux.Categoria = (string)Datos.Lector["IDCategoria"];
-                    Aux.Descripcion = (string)Datos.Lector["Descripcion"];
-                   
+                    Especialidad Aux = new Especialidad();
+                    Aux.ID = (int)Datos.Lector["EID"];
+                    Aux.Nombre = (string)Datos.Lector["ESPECIALIDAD"];
                     Lista.Add(Aux);
                 }
                 return Lista;
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
+
         }
+
     }
 }

@@ -13,11 +13,12 @@ namespace TP5_CallCenter_Sepulveda_Varela
     public partial class _Default : Page
     {
         public List<Usuario> Lusr;
+        public List<Ticket> Lticket;
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            cargar_usuario();
+            cargar_ticket();
         }
 
         private void cargar_usuario()
@@ -29,6 +30,16 @@ namespace TP5_CallCenter_Sepulveda_Varela
             lblUsuario.Text =Lusr[0].NombreUsuario;
             lblTelefono.Text ="Telefono: " + Lusr[0].Telefono;
             lblEmail.Text = "Correo: " + Lusr[0].Email;
+
+        }
+
+        private void cargar_ticket()
+        {
+            TicketServicio Servicio = new TicketServicio();
+            Lticket = Servicio.Listar();
+
+            gvTickets.DataSource = Lticket;
+            gvTickets.DataBind();
 
         }
 
