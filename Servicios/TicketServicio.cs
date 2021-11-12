@@ -46,7 +46,8 @@ namespace Servicios
                     {
                         Aux.PCliente = new Cliente();
                         Aux.PCliente.RazonSocial = (string)Datos.Lector["CNombre"];
-                        Aux.PCliente.Tipo = (string)Datos.Lector["CTipo"];
+                        Aux.PCliente.Tipo = new TipoCliente();
+                        Aux.PCliente.Tipo.Nombre = (string)Datos.Lector["CTipo"];
                         Aux.PCliente.Cuit = (string)Datos.Lector["CCuit"];
                         Aux.PCliente.Email = (string)Datos.Lector["CMail"];
                         Aux.PCliente.Telefono  = (string)Datos.Lector["CTelefono"];
@@ -59,6 +60,7 @@ namespace Servicios
                         Aux.PTecnico.Apellido = (string)Datos.Lector["TEApellido"];
                         Aux.PTecnico.Email = (string)Datos.Lector["TEMail"];
                         Aux.PTecnico.Telefono = (string)Datos.Lector["TETelefono"];
+                        Aux.PTecnico.EspecialidadTecnico = new Especialidad();
                         Aux.PTecnico.EspecialidadTecnico.Nombre = (string)Datos.Lector["TEEspecialidad"];
                     }
                     Aux.Fecha_Creacion = (DateTime)Datos.Lector["FCreacion"];
