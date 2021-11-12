@@ -56,8 +56,9 @@ namespace TP5_CallCenter_Sepulveda_Varela
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
             dato = txbNombre.Text;
-            txbApellido.Text = dato;
             //Response.Redirect("NuevoTicket.aspx", false);
         }
+
+    
     }
 }

@@ -12,11 +12,7 @@
                 <h3>Nombre: </h3>
             </div>
             <div class="col-3 d-flex justify-content-start">
-                <asp:UpdatePanel runat="server">
-                <ContentTemplate>
                 <asp:TextBox ID="txbNombre" Width="250px" runat="server"></asp:TextBox>
-                </ContentTemplate>
-                </asp:UpdatePanel>
             </div>
             <div class="col-2 d-flex justify-content-end">
                 <h3>Apellido: </h3>
