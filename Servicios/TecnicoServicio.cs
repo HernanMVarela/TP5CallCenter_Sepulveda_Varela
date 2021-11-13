@@ -44,7 +44,7 @@ namespace Servicios
 
             try
             {
-                datos.SetearComando("insert into TECNICOS (Nombre, Apellido, Email, Telefono, IDEspecialidad) values (@Nombre, @Apellido, @Email, @Telefono, @IDEspecialidad)");
+                datos.SetearComando("insert into TECNICOS (Nombre, Apellido, Mail, Telefono, IDESP) values (@Nombre, @Apellido, @Email, @Telefono, @IDEspecialidad)");
                 datos.setearParametros("@Nombre", nuevo.Nombre);
                 datos.setearParametros("@Apellido", nuevo.Apellido);
                 datos.setearParametros("@Email", nuevo.Email);

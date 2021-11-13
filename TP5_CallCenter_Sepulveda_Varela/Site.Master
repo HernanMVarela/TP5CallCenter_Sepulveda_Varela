@@ -58,10 +58,10 @@
                   <a class="nav-link" onclick="" >Cerrar sesión</a>
                 </li>
               </ul>
-              <form class="d-flex">
+              <div class="d-flex">
                 <input class="form-control me-2" style="width:300px" type="search" placeholder="Search" aria-label="Nº de Ticket">
                 <button class="btn btn-outline-success" type="submit">Buscar</button>
-              </form>
+              </div>
             </div>
           </div>
         </nav>

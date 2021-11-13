@@ -18,7 +18,12 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            cargar_ticket();
+            if (!IsPostBack)
+            {
+                cargar_ticket();
+                cargar_usuario();
+            }
+            
         }
 
         private void cargar_usuario()

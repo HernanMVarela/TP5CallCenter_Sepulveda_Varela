@@ -12,9 +12,8 @@ namespace TP5_CallCenter_Sepulveda_Varela
     public partial class NuevoTecnico : Page
     {
         public Tecnico nuevo = new Tecnico();
-        public List<Especialidad> LEsp;
-        public string dato = "";
-        
+        EspecialidadServicio Servicio = new EspecialidadServicio();
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -25,11 +24,9 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         private void cargar_especialidad()
         {
+            List<Especialidad> LEsp = Servicio.Listar();
             try
             {
-                EspecialidadServicio Servicio = new EspecialidadServicio();
-                LEsp = Servicio.Listar();
-
                 ddlEspecialidad.DataSource = LEsp;
                 ddlEspecialidad.DataTextField = "Nombre";
                 ddlEspecialidad.DataValueField = "ID";
@@ -55,10 +52,61 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            dato = txbNombre.Text;
-            //Response.Redirect("NuevoTicket.aspx", false);
-        }
 
-    
+            try
+            {
+                if (txbNombre.Text == "")
+                {
+                    txbNombre.BorderColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    txbNombre.BorderColor = System.Drawing.Color.White;
+                    nuevo.Nombre = (string)txbNombre.Text;
+                }
+                if (txbApellido.Text == "")
+                {
+                    txbApellido.BorderColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    txbApellido.BorderColor = System.Drawing.Color.White;
+                    nuevo.Apellido = (string)txbApellido.Text;
+                }
+                if (txbEmail.Text == "")
+                {
+                    txbEmail.BorderColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    txbEmail.BorderColor = System.Drawing.Color.White;
+                    nuevo.Email = (string)txbEmail.Text;
+                }
+                if (txbTelefono.Text == "")
+                {
+                    txbTelefono.BorderColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    txbTelefono.BorderColor = System.Drawing.Color.White;
+                    nuevo.Telefono = (string)txbTelefono.Text;
+                }
+
+                nuevo.EspecialidadTecnico = new Especialidad();
+                nuevo.EspecialidadTecnico.ID = int.Parse(ddlEspecialidad.SelectedItem.Value);
+                nuevo.EspecialidadTecnico.Nombre = ddlEspecialidad.SelectedItem.Text;
+
+                
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            TecnicoServicio TechService = new TecnicoServicio();
+            TechService.AgregarDB(nuevo);
+            Response.Redirect("NuevoTicket.aspx", false);
+        }
     }
 }

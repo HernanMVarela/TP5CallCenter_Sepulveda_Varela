@@ -47,10 +47,10 @@
         </div>
         <div class="row mb-3 mt-3">
             <div class="col-6 d-flex justify-content-center">
-                <asp:Button ID="btnAceptar" CssClass="btn btn-success" OnClick="btnAceptar_Click" runat="server" Text="Aceptar" UseSubmitBehavior="false"/>
+                <asp:Button ID="btnAceptar" CssClass="btn btn-success" OnClick="btnAceptar_Click" runat="server" Text="Aceptar"/>
             </div>
             <div class="col-6 d-flex justify-content-center">
-                <asp:Button ID="btnCancelar" CssClass="btn btn-danger" OnClick="btnCancelar_Click" runat="server" Text="Cancelar" UseSubmitBehavior="false" />
+                <asp:Button ID="btnCancelar" CssClass="btn btn-danger" OnClick="btnCancelar_Click" runat="server" Text="Cancelar"/>
             </div>
         </div>
     </div>

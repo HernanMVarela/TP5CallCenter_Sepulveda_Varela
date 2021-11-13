@@ -39,7 +39,7 @@ namespace Servicios
                         Aux.PResponsable = new Usuario();
                         Aux.PResponsable.Nombre = (string)Datos.Lector["UNombre"];
                         Aux.PResponsable.Apellido = (string)Datos.Lector["UApellido"];
-                        Aux.PResponsable.NombreUsuario = (string)Datos.Lector["UUser"];;
+                        Aux.PResponsable.NombreUsuario = (string)Datos.Lector["UUser"];
                     }
                     // CLIENTE
                     if (!(Datos.Lector["CNombre"] is DBNull))
