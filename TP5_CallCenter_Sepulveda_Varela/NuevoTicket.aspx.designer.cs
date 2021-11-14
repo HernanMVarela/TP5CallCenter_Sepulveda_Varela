@@ -51,13 +51,13 @@ namespace TP5_CallCenter_Sepulveda_Varela
         protected global::System.Web.UI.WebControls.Label lblCliente;
 
         /// <summary>
-        /// Control txbCliente.
+        /// Control ddlCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbCliente;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCliente;
 
         /// <summary>
         /// Control btnAgregarCliente.
@@ -69,6 +69,15 @@ namespace TP5_CallCenter_Sepulveda_Varela
         protected global::System.Web.UI.WebControls.Button btnAgregarCliente;
 
         /// <summary>
+        /// Control btnModificarCliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificarCliente;
+
+        /// <summary>
         /// Control lblTecnico.
         /// </summary>
         /// <remarks>
@@ -78,13 +87,13 @@ namespace TP5_CallCenter_Sepulveda_Varela
         protected global::System.Web.UI.WebControls.Label lblTecnico;
 
         /// <summary>
-        /// Control txbTecnico.
+        /// Control ddlTecnico.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbTecnico;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTecnico;
 
         /// <summary>
         /// Control btnAgregarTecnico.
@@ -94,6 +103,15 @@ namespace TP5_CallCenter_Sepulveda_Varela
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarTecnico;
+
+        /// <summary>
+        /// Control btnModificarTecnico.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificarTecnico;
 
         /// <summary>
         /// Control lblComentario.

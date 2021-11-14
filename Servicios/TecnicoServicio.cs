@@ -15,15 +15,18 @@ namespace Servicios
             AccesoDB Datos = new AccesoDB();
             try
             {
-                Datos.SetearComando("SELECT T.ID, T.EspecialidadTecnico, T.Nombre, T.Apellido, T.Telefono, T.Mail FROM Tecnicos T");
+                Datos.SetearComando("SELECT T.ID, E.NOMBRE AS ESPECIALIDAD, T.Nombre, T.Apellido, T.Telefono, T.Mail FROM Tecnicos T INNER JOIN ESPECIALIDADES E ON E.ID=T.IDESP");
                 Datos.LecturaDB();
                 while (Datos.Lector.Read())
                 {
                     Tecnico Aux = new Tecnico();
+                    Aux.EspecialidadTecnico = new Especialidad();
+                    
                     Aux.ID = (int)Datos.Lector["ID"];
-                    Aux.EspecialidadTecnico.Nombre = (string)Datos.Lector["EspecialidadTecnico"];
+                    Aux.EspecialidadTecnico.Nombre = (string)Datos.Lector["ESPECIALIDAD"];
                     Aux.Nombre = (string)Datos.Lector["Nombre"];
                     Aux.Apellido = (string)Datos.Lector["Apellido"];
+                    Aux.NombreCompleto = (string)Datos.Lector["Nombre"] + " " + (string)Datos.Lector["Apellido"];
                     Aux.Telefono = (string)Datos.Lector["Telefono"];
                     Aux.Email = (string)Datos.Lector["Mail"];
 

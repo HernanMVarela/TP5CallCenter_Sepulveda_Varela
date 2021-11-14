@@ -16,18 +16,19 @@ namespace Servicios
             AccesoDB Datos = new AccesoDB();
             try
             {
-                Datos.SetearComando("SELECT C.ID, T.Nombre, C.IDTipo, C.RazonSocial, C.Cuit, C.Telefono, C.Mail FROM Clientes C INNER JOIN TIPOCLIENTES T ON T.ID=C.IDTIPO");
+                Datos.SetearComando("SELECT C.ID, T.Nombre as Tipo, C.IDTipo, C.NOMBRE, C.Cuit, C.Telefono, C.EMAIL FROM Clientes C INNER JOIN TIPOCLIENTES T ON T.ID=C.IDTIPO");
                 Datos.LecturaDB();
                 while (Datos.Lector.Read())
                 {
                     Cliente Aux = new Cliente();
                     Aux.ID = (int)Datos.Lector["ID"];
-                    Aux.Tipo.ID = (int)Datos.Lector["C.IDTipo"];
-                    Aux.Tipo.Nombre = (string)Datos.Lector["T.Nombre"];
-                    Aux.RazonSocial = (string)Datos.Lector["RazonSocial"];
+                    Aux.Tipo = new TipoCliente();
+                    Aux.Tipo.ID = Convert.ToInt32(Datos.Lector["IDTipo"]);
+                    Aux.Tipo.Nombre = (string)Datos.Lector["Tipo"];
+                    Aux.RazonSocial = (string)Datos.Lector["Nombre"];
                     Aux.Cuit = (string)Datos.Lector["Cuit"];
                     Aux.Telefono = (string)Datos.Lector["Telefono"];
-                    Aux.Email = (string)Datos.Lector["Mail"];
+                    Aux.Email = (string)Datos.Lector["EMAIL"];
 
                     Lista.Add(Aux);
                 }

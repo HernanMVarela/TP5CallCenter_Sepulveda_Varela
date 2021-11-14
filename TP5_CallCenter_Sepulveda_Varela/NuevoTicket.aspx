@@ -19,22 +19,34 @@
             <div class="col-2 d-flex justify-content-center align-items-center">   
                 <asp:Label ID="lblCliente" style="font-size:30px;" runat="server" Text="Cliente"></asp:Label>
             </div>
-            <div class="col d-flex justify-content-center align-items-center">
-                <asp:TextBox ID="txbCliente" class="w-100" MaxLength="100" Wrap="false" runat="server"></asp:TextBox>
+            <div class="col-4 d-flex justify-content-start align-items-center">
+                <asp:DropDownList ID="ddlCliente" class="btn btn-secondary" style="width:100%" runat="server"></asp:DropDownList>
             </div>
-            <div class="col-2 d-flex justify-content-center align-items-center">
-                <asp:Button ID="btnAgregarCliente" class="btn btn-primary" OnClick="btnAgregarCliente_Click" runat="server" Text="Agregar" UseSubmitBehavior="false"/>
+            <div class="col-1 d-flex justify-content-center align-items-center">
+                <asp:Button ID="btnAgregarCliente" class="btn btn-primary" OnClick="btnAgregarCliente_Click" runat="server" Text="Agregar"/>
+            </div>
+            <div class="col-1 d-flex justify-content-center align-items-center">
+                <asp:Button ID="btnModificarCliente" class="btn btn-primary" OnClick="btnModificarCliente_Click" runat="server" Text="Modificar"/>
+            </div>
+            <div class="col-4 d-flex justify-content-center align-items-center">>   
+                <%-- columna vacia --%>
             </div>
         </div>
         <div class="row my-2 me-2">
             <div class="col-2 d-flex justify-content-center align-items-center">   
                 <asp:Label ID="lblTecnico" style="font-size:30px;" runat="server" Text="Técnico"></asp:Label>
             </div>
-            <div class="col d-flex justify-content-center align-items-center">
-                <asp:TextBox ID="txbTecnico" class="w-100" MaxLength="100" Wrap="false" runat="server"></asp:TextBox>
+            <div class="col-4 d-flex justify-content-start align-items-center">
+                <asp:DropDownList ID="ddlTecnico" class="btn btn-secondary" style="width:100%" runat="server"></asp:DropDownList>
             </div>
-            <div class="col-2 d-flex justify-content-center align-items-center">
-                <asp:Button ID="btnAgregarTecnico" class="btn btn-primary" OnClick="btnAgregarTecnico_Click" runat="server" Text="Agregar" UseSubmitBehavior="false"/>
+            <div class="col-1 d-flex justify-content-center align-items-center">
+                <asp:Button ID="btnAgregarTecnico" class="btn btn-primary" OnClick="btnAgregarTecnico_Click" runat="server" Text="Agregar" />
+            </div>
+            <div class="col-1 d-flex justify-content-center align-items-center">
+                <asp:Button ID="btnModificarTecnico" class="btn btn-primary" OnClick="btnModificarTecnico_Click" runat="server" Text="Modificar" />
+            </div>
+            <div class="col-4 d-flex justify-content-center align-items-center">>   
+                <%-- columna vacia --%>
             </div>
         </div>
         <div class="row mb-2 mt-3 me-2">
@@ -47,10 +59,10 @@
         </div>
         <div class="row mb-2 mt-3 me-2">
             <div class="col-6 d-flex justify-content-center align-items-center">
-                <asp:Button ID="btnAceptar" CssClass="btn btn-success" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" UseSubmitBehavior="false"/>
+                <asp:Button ID="btnAceptar" CssClass="btn btn-success" runat="server" OnClick="btnAceptar_Click" Text="Aceptar"/>
             </div>
             <div class="col-6 d-flex justify-content-center align-items-center">
-                <asp:Button ID="btnCancelar" CssClass="btn btn-danger" runat="server" OnClick="btnCancelar_Click" Text="Cancelar" UseSubmitBehavior="false"/>
+                <asp:Button ID="btnCancelar" CssClass="btn btn-danger" runat="server" OnClick="btnCancelar_Click" Text="Cancelar"/>
             </div>
 
         </div>

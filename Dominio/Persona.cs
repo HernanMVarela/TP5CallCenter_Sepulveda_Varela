@@ -12,15 +12,15 @@ namespace Dominio
         public string Apellido { get; set; }
         public string Email { get; set; }
         public string Telefono { get; set; }
-        //public int ID { get; set; }
+        public string NombreCompleto { get; set; }
 
         public Persona()
         {
-            Nombre = "Sin nombre";
-            Apellido = "Sin Apellido";
-            Email = "Sin Email";
-            Telefono = "Sin Telefono";
-            //ID = 0;
+            Nombre = "";
+            Apellido = "";
+            NombreCompleto = "";
+            Email = "";
+            Telefono = "";
         }
     }
 }
