@@ -23,19 +23,16 @@ namespace TP5_CallCenter_Sepulveda_Varela
                 cargar_ticket();
                 cargar_usuario();
             }
-            
         }
 
         private void cargar_usuario()
         {
-            
             UsuarioServicio Service = new UsuarioServicio();
             Lusr = Service.Listar();
             lblNombre.Text = Lusr[0].Nombre + " " + Lusr[0].Apellido;
             lblUsuario.Text =Lusr[0].NombreUsuario;
             lblTelefono.Text ="Telefono: " + Lusr[0].Telefono;
             lblEmail.Text = "Correo: " + Lusr[0].Email;
-
         }
 
         private void cargar_ticket()
@@ -45,7 +42,6 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
             gvTickets.DataSource = Lticket;
             gvTickets.DataBind();
-
         }
 
         protected void btnNuevoTicket_Click(object sender, EventArgs e)

@@ -13,6 +13,8 @@ namespace TP5_CallCenter_Sepulveda_Varela
     {
         public ClienteServicio CliService = new ClienteServicio();
         public TecnicoServicio TechService = new TecnicoServicio();
+        List<Tecnico> LTec;
+        List<Cliente> LClie;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,10 +27,10 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         private void cargar_tecnico()
         {
-            List<Tecnico> LEsp = TechService.Listar();
+            LTec=TechService.Listar();
             try
             {
-                ddlTecnico.DataSource = LEsp;
+                ddlTecnico.DataSource = LTec;
                 ddlTecnico.DataTextField = "NombreCompleto";
                 ddlTecnico.DataValueField = "ID";
                 ddlTecnico.DataBind();
@@ -42,10 +44,10 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         private void cargar_cliente()
         {
-            List<Cliente> LEsp = CliService.Listar();
+            LClie = CliService.Listar();
             try
             {
-                ddlCliente.DataSource = LEsp;
+                ddlCliente.DataSource = LClie;
                 ddlCliente.DataTextField = "RazonSocial";
                 ddlCliente.DataValueField = "ID";
                 ddlCliente.DataBind();
@@ -77,14 +79,16 @@ namespace TP5_CallCenter_Sepulveda_Varela
             Response.Redirect("Default.aspx");
         }
 
-        protected void Modificar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnModificarTecnico_Click(object sender, EventArgs e)
         {
+            Tecnico modificar = new Tecnico();
+            int id=0;
+            id = int.Parse(ddlTecnico.SelectedItem.Value);
+            LTec = TechService.Listar();
+            modificar = LTec.Find(x => x.ID == id);
 
+            Session.Add("ModTecnico", modificar);
+            Response.Redirect("AltaTecnico.aspx");
         }
 
         protected void btnModificarCliente_Click(object sender, EventArgs e)

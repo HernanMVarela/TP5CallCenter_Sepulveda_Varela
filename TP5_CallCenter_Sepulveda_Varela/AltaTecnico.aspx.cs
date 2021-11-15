@@ -19,6 +19,16 @@ namespace TP5_CallCenter_Sepulveda_Varela
             if (!IsPostBack)
             {
                 cargar_especialidad();
+
+                if(!(Session["ModTecnico"] is null))
+                {
+
+                    nuevo=(Tecnico)Session["ModTecnico"];
+                    txbNombre.Text = nuevo.Nombre;
+                    txbApellido.Text = nuevo.Apellido;
+                    txbEmail.Text = nuevo.Email;
+                    txbTelefono.Text = nuevo.Telefono;
+                }
             }
         }
 

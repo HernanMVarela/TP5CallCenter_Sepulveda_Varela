@@ -24,19 +24,18 @@
                                 <asp:BoundField DataField="Fecha_Creacion" HeaderText="Creacion" DataFormatString="{0:d}" SortExpression="Fecha_Creacion" />
                                 <asp:BoundField DataField="Fecha_Cierre" HeaderText="Cierre" DataFormatString="{0:d}" SortExpression="Fecha_Cierre" />
                             </Columns>
-
                         </asp:GridView>
                     </div>
                 </div>
                 <div class="row mb-2 mt-2">
                     <div class="col-3 d-flex justify-content-center align-items-center">
-                        <asp:Button ID="btnNuevoTicket" class="btn btn-outline-info" OnClick="btnNuevoTicket_Click" runat="server" Text="Nuevo Ticket"/>
+                        <asp:Button ID="btnNuevoTicket" class="btn btn-info" OnClick="btnNuevoTicket_Click" runat="server" Text="Nuevo Ticket"/>
                     </div>
                     <div class="col-3 d-flex justify-content-center align-items-center">
-                        <asp:Button ID="btnAsignar" class="btn btn-outline-info" runat="server" Text="Asignar"/>
+                        <asp:Button ID="btnAsignar" class="btn btn-info" runat="server" Text="Asignar"/>
                     </div>
                     <div class="col-3 d-flex justify-content-center align-items-center">
-                        <asp:Button ID="btnModificar" class="btn btn-outline-info" runat="server" Text="Modificar"/>
+                        <asp:Button ID="btnModificar" class="btn btn-info" runat="server" Text="Modificar"/>
                     </div>
                     <div class="col-3 d-flex justify-content-center align-items-center">
                         <asp:Button ID="btnEliminar" CssClass="btn btn-danger" runat="server" Text="Eliminar" />
@@ -91,6 +90,15 @@
                         </div>
                         <div class="row m-1">
                             <asp:Label ID="lblEmailTec" runat="server" Text="Direccion de correo"></asp:Label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row h-auto cuadro_uno">
+                    <div class="col">
+                        <div class="row mb-2 mt-2">
+                            <div class="col d-flex justify-content-center align-items-center">
+                                <asp:Button ID="btnPanelAdmin" CssClass="btn btn-warning" style="height:70px; width:stretch;" runat="server" Text="Panel de administración" />
+                            </div>
                         </div>
                     </div>
                 </div>
