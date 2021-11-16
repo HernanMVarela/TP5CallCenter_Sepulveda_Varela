@@ -78,6 +78,15 @@ namespace TP5_CallCenter_Sepulveda_Varela
         protected global::System.Web.UI.WebControls.Button btnModificarCliente;
 
         /// <summary>
+        /// btnEliminarCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminarCliente;
+
+        /// <summary>
         /// lblTecnico control.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace TP5_CallCenter_Sepulveda_Varela
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnModificarTecnico;
+
+        /// <summary>
+        /// btnEliminarTecnico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminarTecnico;
 
         /// <summary>
         /// lblComentario control.

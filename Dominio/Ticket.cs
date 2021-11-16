@@ -8,7 +8,6 @@ namespace Dominio
 {
     public class Ticket
     {
-        
         public int ID { get; set; }
         public string Titulo { get; set; }
         public string Comentario { get; set; }
@@ -19,7 +18,5 @@ namespace Dominio
         public Incidencia PIncidencia { get; set; }
         public DateTime Fecha_Creacion { get; set; }
         public DateTime Fecha_Cierre { get; set; }
-
-
     }
 }

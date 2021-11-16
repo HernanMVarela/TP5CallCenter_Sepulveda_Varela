@@ -28,14 +28,20 @@
                     </div>
                 </div>
                 <div class="row mb-2 mt-2">
-                    <div class="col-3 d-flex justify-content-center align-items-center">
+                    <div class="col-2 d-flex justify-content-center align-items-center">
                         <asp:Button ID="btnNuevoTicket" class="btn btn-info" OnClick="btnNuevoTicket_Click" runat="server" Text="Nuevo Ticket"/>
                     </div>
-                    <div class="col-3 d-flex justify-content-center align-items-center">
+                    <div class="col-2 d-flex justify-content-center align-items-center">
                         <asp:Button ID="btnAsignar" class="btn btn-info" runat="server" Text="Asignar"/>
                     </div>
-                    <div class="col-3 d-flex justify-content-center align-items-center">
+                    <div class="col-2 d-flex justify-content-center align-items-center">
                         <asp:Button ID="btnModificar" class="btn btn-info" runat="server" Text="Modificar"/>
+                    </div>
+                    <div class="col-2 d-flex justify-content-center align-items-center">
+                        <asp:Button ID="btnVerTicket" CssClass="btn btn-info" runat="server" Text="Ver ticket"/>
+                    </div>
+                    <div class="col-1 d-flex justify-content-center align-items-center">
+
                     </div>
                     <div class="col-3 d-flex justify-content-center align-items-center">
                         <asp:Button ID="btnEliminar" CssClass="btn btn-danger" runat="server" Text="Eliminar" />
