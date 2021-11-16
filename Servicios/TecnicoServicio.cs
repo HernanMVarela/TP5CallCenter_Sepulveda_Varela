@@ -67,11 +67,11 @@ namespace Servicios
 
             try
             {
-                datos.SetearComando("update TECNICOS set Nombre=@Nombre, Apellido=@Apellido, Email=@Email, Telefono=@Telefono, IDEspecialidad=@IDEspecialidad where ID=@Id");
+                datos.SetearComando("update TECNICOS set Nombre=@Nombre, Apellido=@Apellido, Mail=@Mail, Telefono=@Telefono, IDESP=@IDEspecialidad where ID=@Id");
                 datos.setearParametros("@ID", modify.ID);
                 datos.setearParametros("@Nombre", modify.Nombre);
                 datos.setearParametros("@Apellido", modify.Apellido);
-                datos.setearParametros("@Email", modify.Email);
+                datos.setearParametros("@Mail", modify.Email);
                 datos.setearParametros("@Telefono", modify.Telefono);
                 datos.setearParametros("@IDEspecialidad", modify.EspecialidadTecnico.ID);
                 datos.EjecutarAccion();

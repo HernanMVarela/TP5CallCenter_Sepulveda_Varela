@@ -66,6 +66,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         protected void btnAgregarTecnico_Click(object sender, EventArgs e)
         {
+            Session.Add("ModTecnico", null);
             Response.Redirect("AltaTecnico.aspx");
         }
 

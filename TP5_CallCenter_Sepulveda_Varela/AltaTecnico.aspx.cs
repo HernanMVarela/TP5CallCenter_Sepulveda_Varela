@@ -22,7 +22,6 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
                 if(!(Session["ModTecnico"] is null))
                 {
-
                     nuevo=(Tecnico)Session["ModTecnico"];
                     txbNombre.Text = nuevo.Nombre;
                     txbApellido.Text = nuevo.Apellido;
@@ -47,12 +46,6 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
                 throw ex;
             }
-           
-        }
-
-        private void AgregarTecnico()
-        {
-            
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -105,8 +98,6 @@ namespace TP5_CallCenter_Sepulveda_Varela
                 nuevo.EspecialidadTecnico = new Especialidad();
                 nuevo.EspecialidadTecnico.ID = int.Parse(ddlEspecialidad.SelectedItem.Value);
                 nuevo.EspecialidadTecnico.Nombre = ddlEspecialidad.SelectedItem.Text;
-
-                
             }
             catch (Exception ex)
             {
@@ -115,7 +106,18 @@ namespace TP5_CallCenter_Sepulveda_Varela
             }
 
             TecnicoServicio TechService = new TecnicoServicio();
-            TechService.AgregarDB(nuevo);
+            
+            if (!(Session["ModTecnico"] is null))
+            {
+                Tecnico Aux = new Tecnico();
+                Aux = (Tecnico)Session["ModTecnico"];
+                nuevo.ID = Aux.ID;
+                TechService.ModificarDB(nuevo);
+            }
+            else
+            {
+                TechService.AgregarDB(nuevo);
+            }
             Response.Redirect("NuevoTicket.aspx", false);
         }
     }

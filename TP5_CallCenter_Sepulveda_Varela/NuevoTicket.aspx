@@ -28,7 +28,7 @@
             <div class="col-1 d-flex justify-content-center align-items-center">
                 <asp:Button ID="btnModificarCliente" class="btn btn-primary" OnClick="btnModificarCliente_Click" runat="server" Text="Modificar"/>
             </div>
-            <div class="col-4 d-flex justify-content-center align-items-center">>   
+            <div class="col-4 d-flex justify-content-center align-items-center">  
                 <%-- columna vacia --%>
             </div>
         </div>
@@ -45,7 +45,7 @@
             <div class="col-1 d-flex justify-content-center align-items-center">
                 <asp:Button ID="btnModificarTecnico" class="btn btn-primary" OnClick="btnModificarTecnico_Click" runat="server" Text="Modificar" />
             </div>
-            <div class="col-4 d-flex justify-content-center align-items-center">>   
+            <div class="col-4 d-flex justify-content-center align-items-center">  
                 <%-- columna vacia --%>
             </div>
         </div>
