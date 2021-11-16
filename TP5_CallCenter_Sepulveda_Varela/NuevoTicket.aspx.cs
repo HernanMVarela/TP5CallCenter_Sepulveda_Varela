@@ -61,6 +61,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         protected void btnAgregarCliente_Click(object sender, EventArgs e)
         {
+            Session.Add("ModCliente", null); 
             Response.Redirect("AltaCliente.aspx");
         }
 
@@ -89,12 +90,19 @@ namespace TP5_CallCenter_Sepulveda_Varela
             modificar = LTec.Find(x => x.ID == id);
 
             Session.Add("ModTecnico", modificar);
-            Response.Redirect("AltaTecnico.aspx");
+            Response.Redirect("AltaTecnico.aspx",false);
         }
 
         protected void btnModificarCliente_Click(object sender, EventArgs e)
         {
+            Cliente modificar = new Cliente();
+            int id = 0;
+            id = int.Parse(ddlCliente.SelectedItem.Value);
+            LClie = CliService.Listar();
+            modificar = LClie.Find(x => x.ID == id);
 
+            Session.Add("ModCliente", modificar);
+            Response.Redirect("AltaCliente.aspx",false);
         }
     }
 }

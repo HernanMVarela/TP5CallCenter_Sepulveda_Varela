@@ -47,18 +47,19 @@ namespace Servicios
 
             try
             {
-                datos.SetearComando("insert into CLIENTES (Nombre, CUIT, Email, Telefono, IDTipo) values (@Nombre, @CUIT, @Email, @Telefono, @IDTipo)");
+                datos.SetearComando("insert into CLIENTES (NOMBRE, CUIT, EMAIL, Telefono, IDTipo) values (@Nombre, @CUIT, @Email, @Telefono, @IDTipo)");
                 datos.setearParametros("@Nombre", nuevo.RazonSocial);
                 datos.setearParametros("@CUIT", nuevo.Cuit);
                 datos.setearParametros("@Email", nuevo.Email);
                 datos.setearParametros("@Telefono", nuevo.Telefono);
-                datos.setearParametros("@IDTipo", nuevo.Tipo);
+                datos.setearParametros("@IDTipo", nuevo.Tipo.ID);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+            
         }
 
         public void ModificarDB(Cliente modify)
