@@ -6,7 +6,7 @@
         <div class="row m-2 w-100">
             <div class="col cuadro_uno mb-2 mt-2 h-auto w-auto">
                 <div class="row mb-2 mt-2">
-                    <div class="col-12">
+                    <div class="col-12 d-flex justify-content-center align-items-center">
                         <h1>Tickets</h1>
                     </div>
                 </div>
@@ -17,9 +17,9 @@
                                 <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" />
                                 <asp:BoundField DataField="Titulo" HeaderText="Asunto" SortExpression="Titulo" />
                                 <asp:BoundField DataField="PCliente.RazonSocial" HeaderText="Cliente" SortExpression="PCliente.RazonSocial" />
-                                <asp:BoundField DataField="PTecnico.NombreCompleto" HeaderText="Tecnico" SortExpression="PTecnico.NombreCompleto" />
+                                <asp:BoundField DataField="PIncidencia[0].PTecnico.NombreCompleto" HeaderText="Tecnico" SortExpression="PIncidencia[0].PTecnico.NombreCompleto" />
                                 <asp:BoundField DataField="PCliente.Cuit" HeaderText="CUIT" SortExpression="PCliente.Cuit" />
-                                <asp:BoundField DataField="PIncidencia.Categoria" HeaderText="Categoria" SortExpression="PIncidencia.Categoria" />
+                                <asp:BoundField DataField="PIncidencia[0].Categoria" HeaderText="Categoria" SortExpression="PIncidencia[0].Categoria" />
                                 <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
                                 <asp:BoundField DataField="Fecha_Creacion" HeaderText="Creacion" DataFormatString="{0:d}" SortExpression="Fecha_Creacion" />
                                 <asp:BoundField DataField="Fecha_Cierre" HeaderText="Cierre" DataFormatString="{0:d}" SortExpression="Fecha_Cierre" />
