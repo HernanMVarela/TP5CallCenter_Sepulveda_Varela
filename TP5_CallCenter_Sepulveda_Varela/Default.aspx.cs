@@ -48,5 +48,15 @@ namespace TP5_CallCenter_Sepulveda_Varela
         {
             Response.Redirect("NuevoTicket.aspx");
         }
+
+        protected void btnPanelAdmin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PanelAdministracion.aspx");
+        }
+
+        protected void btnVerTicket_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("VerTicket.aspx");
+        }
     }
 }

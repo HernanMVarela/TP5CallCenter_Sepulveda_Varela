@@ -26,6 +26,7 @@ namespace Servicios
                         Aux.Titulo = (string)Datos.Lector["TTitulo"];
                         Aux.Comentario = (string)Datos.Lector["TComentario"];
                         // INCIDENCIA
+                        Aux.PIncidencia = new List<Incidencia>();
                         if (!(Datos.Lector["IID"] is DBNull))
                         {
                             Incidencia NewInc = new Incidencia();
@@ -46,7 +47,7 @@ namespace Servicios
                                 NewInc.PTecnico.EspecialidadTecnico = new Especialidad();
                                 NewInc.PTecnico.EspecialidadTecnico.Nombre = (string)Datos.Lector["TEEspecialidad"];
                             }
-                            Aux.PIncidencia = new List<Incidencia>();
+                            
                             Aux.PIncidencia.Add(NewInc);
                         }
                         // ESTADO DEL TICKET
@@ -71,7 +72,6 @@ namespace Servicios
                             Aux.PCliente.Email = (string)Datos.Lector["CMail"];
                             Aux.PCliente.Telefono = (string)Datos.Lector["CTelefono"];
                         }
-                       
                         Aux.Fecha_Creacion = (DateTime)Datos.Lector["FCreacion"];
                         Aux.Fecha_Cierre = (DateTime)Datos.Lector["FCierre"];
                     }

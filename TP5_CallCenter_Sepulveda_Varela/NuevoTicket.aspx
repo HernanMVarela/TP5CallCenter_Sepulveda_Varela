@@ -9,6 +9,14 @@
         </div>
         <div class="row my-3 me-2">
             <div class="col-2 d-flex justify-content-center align-items-center">
+                <asp:Label ID="lblAsunto" style="font-size:30px;" runat="server" Text="Asunto"></asp:Label>
+            </div>
+            <div class="col d-flex justify-content-center align-items-center">
+                <asp:TextBox ID="txbAsunto" class="w-100 h-100" MaxLength="100" runat="server"></asp:TextBox>
+            </div>
+        </div>
+        <div class="row my-3 me-2">
+            <div class="col-2 d-flex justify-content-center align-items-center">
                 <asp:Label ID="lblDescripcion" style="font-size:30px;" runat="server" Text="Descripción"></asp:Label>
             </div>
             <div class="col d-flex justify-content-center align-items-center">
@@ -63,6 +71,17 @@
                 <asp:TextBox ID="txbComentario" class="w-100" style="min-height:75px; max-height:150px" MaxLength="150" TextMode="MultiLine" Wrap="true" runat="server"></asp:TextBox>
             </div>
         </div>
+        <div class="row mb-2 mt-3 me-2">   
+            <div class="col-2 d-flex justify-content-center align-self-end">
+                <asp:Label ID="lblCategoria" style="font-size:30px;" runat="server" Text="Categoria"></asp:Label>
+            </div>
+            <div class="col-4 d-flex justify-content-center align-items-center">
+                <asp:DropDownList ID="ddlCategoria" class="btn btn-secondary" style="width:100%" runat="server"></asp:DropDownList>
+            </div>
+            <div class="col-6">
+                <%-- columna vacia --%>
+            </div>
+        </div>
         <div class="row mb-2 mt-3 me-2">
             <div class="col-6 d-flex justify-content-center align-items-center">
                 <asp:Button ID="btnAceptar" CssClass="btn btn-success" runat="server" OnClick="btnAceptar_Click" Text="Aceptar"/>
@@ -70,14 +89,12 @@
             <div class="col-6 d-flex justify-content-center align-items-center">
                 <asp:Button ID="btnCancelar" CssClass="btn btn-danger" runat="server" OnClick="btnCancelar_Click" Text="Cancelar"/>
             </div>
-
         </div>
         <div class="row mb-2 mt-3 me-2">
             <div class="col-12 d-flex justify-content-center align-self-end">
                 <p style="font-size:20px"><%: DateTime.Now %></p>
             </div>
         </div>
-        
     </div>
 
 </asp:Content>

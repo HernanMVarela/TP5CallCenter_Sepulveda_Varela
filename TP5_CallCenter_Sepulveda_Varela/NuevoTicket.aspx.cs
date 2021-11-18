@@ -13,8 +13,10 @@ namespace TP5_CallCenter_Sepulveda_Varela
     {
         public ClienteServicio CliService = new ClienteServicio();
         public TecnicoServicio TechService = new TecnicoServicio();
+        public CategoriaServicio CateService = new CategoriaServicio();
         List<Tecnico> LTec;
         List<Cliente> LClie;
+        List<Categoria> LCate;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,6 +24,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             {
                 cargar_cliente();
                 cargar_tecnico();
+                cargar_categoria();
             }
         }
 
@@ -37,8 +40,8 @@ namespace TP5_CallCenter_Sepulveda_Varela
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
         }
 
@@ -54,8 +57,25 @@ namespace TP5_CallCenter_Sepulveda_Varela
             }
             catch (Exception ex)
             {
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx");
+            }
+        }
 
-                throw ex;
+        private void cargar_categoria()
+        {
+            LCate = CateService.Listar();
+            try
+            {
+                ddlCategoria.DataSource = LCate;
+                ddlCategoria.DataTextField = "Nombre";
+                ddlCategoria.DataValueField = "ID";
+                ddlCategoria.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
         }
 
@@ -88,7 +108,6 @@ namespace TP5_CallCenter_Sepulveda_Varela
             id = int.Parse(ddlTecnico.SelectedItem.Value);
             LTec = TechService.Listar();
             modificar = LTec.Find(x => x.ID == id);
-
             Session.Add("ModTecnico", modificar);
             Response.Redirect("AltaTecnico.aspx",false);
         }
@@ -100,7 +119,6 @@ namespace TP5_CallCenter_Sepulveda_Varela
             id = int.Parse(ddlCliente.SelectedItem.Value);
             LClie = CliService.Listar();
             modificar = LClie.Find(x => x.ID == id);
-
             Session.Add("ModCliente", modificar);
             Response.Redirect("AltaCliente.aspx",false);
         }

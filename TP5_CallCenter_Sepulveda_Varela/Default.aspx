@@ -38,7 +38,7 @@
                         <asp:Button ID="btnModificar" class="btn btn-info" runat="server" Text="Modificar"/>
                     </div>
                     <div class="col-2 d-flex justify-content-center align-items-center">
-                        <asp:Button ID="btnVerTicket" CssClass="btn btn-info" runat="server" Text="Ver ticket"/>
+                        <asp:Button ID="btnVerTicket" CssClass="btn btn-info" runat="server" OnClick="btnVerTicket_Click" Text="Ver ticket"/>
                     </div>
                     <div class="col-1 d-flex justify-content-center align-items-center">
 
@@ -103,7 +103,7 @@
                     <div class="col">
                         <div class="row mb-2 mt-2">
                             <div class="col d-flex justify-content-center align-items-center">
-                                <asp:Button ID="btnPanelAdmin" CssClass="btn btn-warning" style="height:70px; width:stretch;" runat="server" Text="Panel de administración" />
+                                <asp:Button ID="btnPanelAdmin" CssClass="btn btn-warning" style="height:70px; width:stretch;" OnClick="btnPanelAdmin_Click" runat="server" Text="Panel de administración" />
                             </div>
                         </div>
                     </div>
