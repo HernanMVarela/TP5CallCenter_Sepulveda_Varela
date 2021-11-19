@@ -33,31 +33,13 @@ namespace TP5_CallCenter_Sepulveda_Varela
         protected global::System.Web.UI.WebControls.Button btnNuevoTicket;
 
         /// <summary>
-        /// btnAsignar control.
+        /// btnPanelAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAsignar;
-
-        /// <summary>
-        /// btnModificar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificar;
-
-        /// <summary>
-        /// btnVerTicket control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVerTicket;
+        protected global::System.Web.UI.WebControls.Button btnPanelAdmin;
 
         /// <summary>
         /// btnEliminar control.
@@ -139,14 +121,5 @@ namespace TP5_CallCenter_Sepulveda_Varela
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEmailTec;
-
-        /// <summary>
-        /// btnPanelAdmin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPanelAdmin;
     }
 }

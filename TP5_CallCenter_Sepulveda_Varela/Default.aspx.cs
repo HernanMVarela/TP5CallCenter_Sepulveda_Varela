@@ -58,5 +58,12 @@ namespace TP5_CallCenter_Sepulveda_Varela
         {
             Response.Redirect("VerTicket.aspx");
         }
+
+        protected void gvTickets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = gvTickets.SelectedRow;
+            Session.Add("TicketID", Convert.ToInt32(row.Cells[0].Text));
+            Response.Redirect("VerTicket.aspx");
+        }
     }
 }

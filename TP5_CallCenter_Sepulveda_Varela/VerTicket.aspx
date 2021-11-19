@@ -7,6 +7,22 @@
                 <asp:Label ID="lblTitulo" runat="server" Font-Size="40px" Text="Titulo"></asp:Label>
             </div>
         </div>
+        <div class="row cuadro_uno w-auto ms-2 me-2 mt-2">  
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <asp:TextBox ID="txbComentario" ReadOnly="true" TextMode="MultiLine" Wrap="true" style="min-width:90%; min-height:200px;" runat="server"></asp:TextBox>
+            </div>
+        </div>
+        <div class="row cuadro_uno w-auto ms-2 me-2 mt-2">
+            <div class="col-4 d-flex justify-content-center align-items-center">
+                <asp:Label ID="lblEstado" runat="server" Text=""></asp:Label>
+            </div>
+            <div class="col-4 d-flex justify-content-center align-items-center">
+                <asp:Label ID="lblCreacion" runat="server" Text=""></asp:Label>
+            </div>
+            <div class="col-4 d-flex justify-content-center align-items-center">
+                <asp:Label ID="lblCierre" runat="server" Text=""></asp:Label>
+            </div>
+        </div>
         <div class="row cuadro_uno w-auto ms-2 me-2 mt-2">
             <div class="col-12 d-flex justify-content-center align-items-center">
                 <asp:GridView ID="gvIncidencias" runat="server"></asp:GridView>
