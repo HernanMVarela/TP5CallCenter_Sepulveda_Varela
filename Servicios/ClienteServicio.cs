@@ -41,6 +41,35 @@ namespace Servicios
             }
         }
 
+        public Cliente Buscar(int ID)
+        {
+            AccesoDB Datos = new AccesoDB();
+            Cliente Aux = new Cliente();
+            try
+            {
+                Datos.SetearComando("SELECT C.ID, T.Nombre as Tipo, C.IDTipo, C.NOMBRE, C.Cuit, C.Telefono, C.EMAIL FROM Clientes C INNER JOIN TIPOCLIENTES T ON T.ID=C.IDTIPO WHERE C.ID=@ID");
+                Datos.setearParametros("@ID", ID);
+                Datos.LecturaDB();
+                Datos.Lector.Read();
+                
+                Aux.ID = (int)Datos.Lector["ID"];
+                Aux.Tipo = new TipoCliente();
+                Aux.Tipo.ID = Convert.ToInt32(Datos.Lector["IDTipo"]);
+                Aux.Tipo.Nombre = (string)Datos.Lector["Tipo"];
+                Aux.RazonSocial = (string)Datos.Lector["Nombre"];
+                Aux.Cuit = (string)Datos.Lector["Cuit"];
+                Aux.Telefono = (string)Datos.Lector["Telefono"];
+                Aux.Email = (string)Datos.Lector["EMAIL"];
+                
+                return Aux;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public void AgregarDB(Cliente nuevo)
         {
             AccesoDB datos = new AccesoDB();

@@ -11,12 +11,9 @@ namespace TP5_CallCenter_Sepulveda_Varela
 {
     public partial class NuevoTicket : System.Web.UI.Page
     {
-        public ClienteServicio CliService = new ClienteServicio();
-        public TecnicoServicio TechService = new TecnicoServicio();
-        public CategoriaServicio CateService = new CategoriaServicio();
-        List<Tecnico> LTec;
-        List<Cliente> LClie;
-        List<Categoria> LCate;
+        List<Tecnico> LTec = new List<Tecnico>();
+        List<Cliente> LClie = new List<Cliente>();
+        List<Categoria> LCate = new List<Categoria>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,7 +27,8 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         private void cargar_tecnico()
         {
-            LTec=TechService.Listar();
+            TecnicoServicio TechService = new TecnicoServicio();
+            LTec =TechService.Listar();
             try
             {
                 ddlTecnico.DataSource = LTec;
@@ -47,6 +45,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         private void cargar_cliente()
         {
+            ClienteServicio CliService = new ClienteServicio();
             LClie = CliService.Listar();
             try
             {
@@ -64,6 +63,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         private void cargar_categoria()
         {
+            CategoriaServicio CateService = new CategoriaServicio();
             LCate = CateService.Listar();
             try
             {
@@ -103,6 +103,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         protected void btnModificarTecnico_Click(object sender, EventArgs e)
         {
+            TecnicoServicio TechService = new TecnicoServicio();
             Tecnico modificar = new Tecnico();
             int id=0;
             id = int.Parse(ddlTecnico.SelectedItem.Value);
@@ -114,6 +115,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         protected void btnModificarCliente_Click(object sender, EventArgs e)
         {
+            ClienteServicio CliService = new ClienteServicio();
             Cliente modificar = new Cliente();
             int id = 0;
             id = int.Parse(ddlCliente.SelectedItem.Value);

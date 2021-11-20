@@ -123,6 +123,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="AltaTecnico.aspx" />
+    <Content Include="NuevaIncidencia.aspx" />
     <Content Include="NuevoTicket.aspx" />
     <Content Include="PanelAdministracion.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -298,6 +299,13 @@
     </Compile>
     <Compile Include="AltaTecnico.aspx.designer.cs">
       <DependentUpon>AltaTecnico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NuevaIncidencia.aspx.cs">
+      <DependentUpon>NuevaIncidencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuevaIncidencia.aspx.designer.cs">
+      <DependentUpon>NuevaIncidencia.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuevoTicket.aspx.cs">
       <DependentUpon>NuevoTicket.aspx</DependentUpon>
