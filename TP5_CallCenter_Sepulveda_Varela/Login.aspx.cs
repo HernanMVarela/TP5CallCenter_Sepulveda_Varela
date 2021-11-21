@@ -18,5 +18,10 @@ namespace TP5_CallCenter_Sepulveda_Varela
         {
             Response.Redirect("Default.aspx");
         }
+
+        protected void btnIngresar_Click1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

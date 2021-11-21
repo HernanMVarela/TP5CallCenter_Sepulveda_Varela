@@ -45,6 +45,7 @@
     <Compile Include="CategoriaServicio.cs" />
     <Compile Include="ClienteServicio.cs" />
     <Compile Include="EspecialidadServicio.cs" />
+    <Compile Include="EstadoServicio.cs" />
     <Compile Include="IncidenciaServicio.cs" />
     <Compile Include="TecnicoServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -14,7 +14,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
         public Ticket VTicket = new Ticket();
         public Cliente VCliente = new Cliente();
         public Usuario VUsuario = new Usuario();
-        public List<Tecnico> VTecnico = new List<Tecnico>();
+        public List<Estado> VEstados = new List<Estado>();
         public List<Incidencia> LIncidencia = new List<Incidencia>();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,7 +38,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
                 VTicket = TServicio.Listar(Convert.ToInt32(Session["TicketID"]));
                 lblTitulo.Text = VTicket.Titulo.ToString();
                 txbComentario.Text = VTicket.Comentario.ToString();
-                lblEstado.Text = "Estado: " + VTicket.Estado;
+                lblEstado.Text = "Estado: " + VTicket.PEstado.Nombre;
                 lblCreacion.Text = "Fecha de creación: " + VTicket.Fecha_Creacion.ToString("dd/MM/yyyy");
                 lblCierre.Text = "Fecha de cierre: " + VTicket.Fecha_Cierre.ToString("dd/MM/yyyy");
             }
@@ -88,14 +88,14 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         private void cargar_tecnico()
         {
-            TecnicoServicio TechService = new TecnicoServicio();
-            VTecnico = TechService.Listar();
+            EstadoServicio EstadoService = new EstadoServicio();
+            VEstados = EstadoService.Listar();
             try
             {
-                ddlReasignar.DataSource = VTecnico;
-                ddlReasignar.DataTextField = "NombreCompleto";
-                ddlReasignar.DataValueField = "ID";
-                ddlReasignar.DataBind();
+                ddlEstados.DataSource = VEstados;
+                ddlEstados.DataTextField = "Nombre";
+                ddlEstados.DataValueField = "ID";
+                ddlEstados.DataBind();
             }
             catch (Exception ex)
             {
@@ -134,6 +134,21 @@ namespace TP5_CallCenter_Sepulveda_Varela
         {
             
             Response.Redirect("NuevaIncidencia.aspx");
+        }
+
+        protected void btnEstado_Click(object sender, EventArgs e)
+        {
+            TicketServicio TServicio = new TicketServicio();
+            VTicket = TServicio.Listar(Convert.ToInt32(Session["TicketID"]));
+            if (int.Parse(ddlEstados.SelectedItem.Value) != VTicket.PEstado.ID)
+            {
+                Session.Add("TEstado", ddlEstados.SelectedItem.Value);
+                Response.Redirect("NuevaIncidencia.aspx");
+            }
+            else
+            {
+                lblEstado.CssClass = "btn-danger";
+            }
         }
     }
 }

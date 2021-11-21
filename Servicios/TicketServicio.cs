@@ -14,7 +14,7 @@ namespace Servicios
             AccesoDB Datos = new AccesoDB();
             try
             {
-                Datos.SetearComando("SELECT T.ID as TID, T.TITULO AS TTitulo, T.COMENTARIO as TComentario, T.FECHA_CREACION as FCreacion, T.FECHA_CIERRE as FCierre, E.NOMBRE AS TEstado, T.IDCLIENTE as TIDCliente, T.IDUSUARIO AS TIDUsuario FROM TICKETS T INNER JOIN ESTADOS E ON T.IDESTADO=E.ID WHERE T.ID=@IDTicket");
+                Datos.SetearComando("SELECT T.ID as TID, T.TITULO AS TTitulo, T.COMENTARIO as TComentario, T.FECHA_CREACION as FCreacion, T.FECHA_CIERRE as FCierre, E.ID as TEID, E.NOMBRE AS TEstado, T.IDCLIENTE as TIDCliente, T.IDUSUARIO AS TIDUsuario FROM TICKETS T INNER JOIN ESTADOS E ON T.IDESTADO=E.ID WHERE T.ID=@IDTicket");
                 Datos.setearParametros("@IDTicket", TicketID);
                 Datos.LecturaDB();
                 Ticket Aux = new Ticket();
@@ -26,7 +26,9 @@ namespace Servicios
                         Aux.ID = TicketID;
                         Aux.Titulo = (string)Datos.Lector["TTitulo"];
                         Aux.Comentario = (string)Datos.Lector["TComentario"];
-                        Aux.Estado = (string)Datos.Lector["TEstado"];
+                        Aux.PEstado = new Estado();
+                        Aux.PEstado.ID = Convert.ToInt32(Datos.Lector["TEID"]);
+                        Aux.PEstado.Nombre = (string)Datos.Lector["TEstado"];
                         Aux.Fecha_Creacion = (DateTime)Datos.Lector["FCreacion"];
                         Aux.Fecha_Cierre = (DateTime)Datos.Lector["FCierre"];
                         Aux.PResponsable = new Usuario();
@@ -53,7 +55,7 @@ namespace Servicios
             AccesoDB Datos = new AccesoDB();
             try
             {
-                Datos.SetearComando("SELECT T.ID as TID, T.TITULO as TTitulo, T.FECHA_CREACION as FCreacion, T.FECHA_CIERRE as FCierre, C.NOMBRE as CNombre, C.CUIT as CCuit, E.NOMBRE as Estado FROM TICKETS T INNER JOIN ESTADOS E ON T.IDESTADO=E.ID INNER JOIN CLIENTES C ON T.IDCLIENTE=C.ID");
+                Datos.SetearComando("SELECT T.ID as TID, T.TITULO as TTitulo, T.FECHA_CREACION as FCreacion, T.FECHA_CIERRE as FCierre, C.NOMBRE as CNombre, C.CUIT as CCuit, T.IDESTADO AS TEID, E.NOMBRE as Estado FROM TICKETS T INNER JOIN ESTADOS E ON T.IDESTADO=E.ID INNER JOIN CLIENTES C ON T.IDCLIENTE=C.ID");
                 Datos.LecturaDB();
 
                 while (Datos.Lector.Read())
@@ -63,7 +65,9 @@ namespace Servicios
                     {
                         Aux.ID = Convert.ToInt32(Datos.Lector["TID"]);
                         Aux.Titulo = (string)Datos.Lector["TTitulo"];
-                        Aux.Estado = (string)Datos.Lector["Estado"];
+                        Aux.PEstado = new Estado();
+                        Aux.PEstado.ID = Convert.ToInt32(Datos.Lector["TEID"]);
+                        Aux.PEstado.Nombre = (string)Datos.Lector["Estado"];
                         Aux.Fecha_Creacion = (DateTime)Datos.Lector["FCreacion"];
                         Aux.Fecha_Cierre = (DateTime)Datos.Lector["FCierre"];
                         if (!(Datos.Lector["CNombre"] is DBNull))
@@ -80,6 +84,23 @@ namespace Servicios
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        public void Cambiar_Estado(Ticket VEstado)
+        {
+            AccesoDB Datos = new AccesoDB();
+            try
+            {
+                Datos.SetearComando("UPDATE TICKETS SET IDESTADO=@IDEstado where ID=@ID");
+                Datos.setearParametros("@ID", VEstado.ID);
+                Datos.setearParametros("@IDEstado", VEstado.PEstado.ID);
+                Datos.LecturaDB();
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }

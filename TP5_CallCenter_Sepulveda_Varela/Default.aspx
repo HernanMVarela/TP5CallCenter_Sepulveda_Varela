@@ -11,14 +11,14 @@
                     </div>
                 </div>
                 <div class="row mb-2 mt-2">
-                    <div class="col-12">   
-                        <asp:GridView ID="gvTickets" class="table align-middle table-info table-hover" AutoGenerateColumns="false" OnSelectedIndexChanged="gvTickets_SelectedIndexChanged" runat="server">
+                    <div class="col-12" style="overflow-y: scroll;height: 400px;">   
+                        <asp:GridView ID="gvTickets" class="table align-middle table-info table-striped table-hover" AutoGenerateColumns="false" OnSelectedIndexChanged="gvTickets_SelectedIndexChanged" runat="server">
                             <Columns>
                                 <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" />
                                 <asp:BoundField DataField="Titulo" HeaderText="Asunto" SortExpression="Titulo" />
                                 <asp:BoundField DataField="PCliente.RazonSocial" HeaderText="Cliente" SortExpression="PCliente.RazonSocial" />
                                 <asp:BoundField DataField="PCliente.Cuit" HeaderText="CUIT" SortExpression="PCliente.Cuit" />
-                                <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
+                                <asp:BoundField DataField="PEstado.Nombre" HeaderText="Estado" SortExpression="PEstado.Nombre" />
                                 <asp:BoundField DataField="Fecha_Creacion" HeaderText="Creacion" DataFormatString="{0:d}" SortExpression="Fecha_Creacion" />
                                 <asp:BoundField DataField="Fecha_Cierre" HeaderText="Cierre" DataFormatString="{0:d}" SortExpression="Fecha_Cierre" />
                                 <asp:ButtonField Text="Select" CommandName="Select" ItemStyle-Width="150" />

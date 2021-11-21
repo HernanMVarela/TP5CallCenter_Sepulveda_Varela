@@ -132,22 +132,31 @@ namespace TP5_CallCenter_Sepulveda_Varela
         protected global::System.Web.UI.WebControls.Label lblRTelefono;
 
         /// <summary>
-        /// Control ddlReasignar.
+        /// Control ddlEstados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlReasignar;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEstados;
 
         /// <summary>
-        /// Control btnReasignar.
+        /// Control btnEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReasignar;
+        protected global::System.Web.UI.WebControls.Button btnEstado;
+
+        /// <summary>
+        /// Control lblAtencion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAtencion;
 
         /// <summary>
         /// Control lblCliente.

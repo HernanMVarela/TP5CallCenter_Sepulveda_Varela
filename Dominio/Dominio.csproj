@@ -44,6 +44,7 @@
     <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Especialidad.cs" />
+    <Compile Include="Estado.cs" />
     <Compile Include="Incidencia.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

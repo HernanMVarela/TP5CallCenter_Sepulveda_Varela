@@ -7,15 +7,15 @@
             </div>
         </div>
         <div class="row w-auto m-2">
-            <div class="col-3 d-flex justify-content-center align-items-center d-flex flex-column">
+            <div class="col-3 d-flex justify-content-center align-items-center flex-column">
                 <asp:Label ID="lblTecnico" CssClass="fw-bold fs-3 mb-3" runat="server" Text="Tecnico"></asp:Label>
                 <asp:DropDownList ID="ddlTecnico" CssClass="w-75 p-2 fs-3" runat="server"></asp:DropDownList>
             </div>
-            <div class="col-3 d-flex justify-content-center align-items-center d-flex flex-column">
+            <div class="col-3 d-flex justify-content-center align-items-center flex-column">
                 <asp:Label ID="lblCategoria" CssClass="fw-bold fs-3 mb-3" runat="server" Text="Categoria"></asp:Label>
                 <asp:DropDownList ID="ddlCategoria" CssClass="w-75 p-2 fs-3" runat="server"></asp:DropDownList>
             </div>
-            <div class="col-6 d-flex justify-content-center align-items-center d-flex flex-column">
+            <div class="col-6 d-flex justify-content-center align-items-center flex-column">
                 <asp:Label ID="lblDescripcion" CssClass="fw-bold fs-3 mb-3" runat="server" Text="Descripcion"></asp:Label>
                 <asp:TextBox ID="txbComentario" CssClass="bg-light text-dark" TextMode="MultiLine" Wrap="true" Font-Size="24px" style="min-width:90%; min-height:130px;" runat="server"></asp:TextBox>
             </div>

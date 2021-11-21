@@ -43,8 +43,8 @@ namespace TP5_CallCenter_Sepulveda_Varela
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
         }
 
@@ -101,8 +101,8 @@ namespace TP5_CallCenter_Sepulveda_Varela
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
 
             TecnicoServicio TechService = new TecnicoServicio();

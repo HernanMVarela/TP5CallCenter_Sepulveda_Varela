@@ -45,7 +45,25 @@ namespace Servicios
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
 
+        public void Agregar(Incidencia nuevo)
+        {
+            AccesoDB datos = new AccesoDB();
+            try
+            {
+                datos.SetearComando("INSERT INTO INCIDENCIAS(IDTICKET,DESCRIPCION,IDCATEGORIA,IDTECNICO,MODIFICACION) VALUES (@IDTicket,@Descripcion,@PCategoria,@PTecnico,@Modificacion)");
+                datos.setearParametros("@IDTicket", nuevo.IDTicket);
+                datos.setearParametros("@Descripcion", nuevo.Descripcion);
+                datos.setearParametros("@PCategoria", nuevo.PCategoria.ID);
+                datos.setearParametros("@PTecnico", nuevo.PTecnico.ID);
+                datos.setearParametros("@Modificacion", nuevo.Modificacion.Date);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }
