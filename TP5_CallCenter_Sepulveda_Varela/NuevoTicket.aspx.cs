@@ -39,7 +39,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
-                Response.Redirect("Error.aspx");
+                Response.Redirect("Error.aspx", false);
             }
         }
 
@@ -57,7 +57,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
-                Response.Redirect("Error.aspx");
+                Response.Redirect("Error.aspx", false);
             }
         }
 
@@ -75,30 +75,65 @@ namespace TP5_CallCenter_Sepulveda_Varela
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
-                Response.Redirect("Error.aspx");
+                Response.Redirect("Error.aspx", false);
             }
         }
 
         protected void btnAgregarCliente_Click(object sender, EventArgs e)
         {
             Session.Add("ModCliente", null); 
-            Response.Redirect("AltaCliente.aspx");
+            Response.Redirect("AltaCliente.aspx", false);
         }
 
         protected void btnAgregarTecnico_Click(object sender, EventArgs e)
         {
             Session.Add("ModTecnico", null);
-            Response.Redirect("AltaTecnico.aspx");
+            Response.Redirect("AltaTecnico.aspx", false);
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
+            Incidencia Inuevo = new Incidencia();
+            Ticket Tnuevo = new Ticket();
+            TicketServicio TService = new TicketServicio();
+            IncidenciaServicio IService = new IncidenciaServicio();
 
+            try
+            {
+                Tnuevo.Titulo = txbAsunto.Text;
+                Tnuevo.Comentario = txbDescripcion.Text;
+                Tnuevo.Fecha_Creacion = DateTime.Now.Date;
+                Tnuevo.PResponsable = new Usuario();
+                Tnuevo.PResponsable.ID = 1;                // Pendiente a modificar con usuario logueado
+                Tnuevo.PCliente = new Cliente();
+                Tnuevo.PCliente.ID = int.Parse(ddlCliente.SelectedItem.Value);
+                Tnuevo.PEstado = new Estado();
+                Tnuevo.PEstado.ID = 1; // Se inicia con estado abierto
+
+                TService.Agregar(Tnuevo);
+
+                Inuevo.PCategoria = new Categoria();
+                Inuevo.PCategoria.ID = int.Parse(ddlCategoria.SelectedItem.Value);
+                Inuevo.Modificacion = DateTime.Now.Date;
+                Inuevo.Descripcion = txbComentario.Text;
+                Inuevo.PTecnico = new Tecnico();
+                Inuevo.PTecnico.ID = int.Parse(ddlTecnico.SelectedItem.Value);
+                Inuevo.IDTicket = TService.BuscarUltimo();
+
+                IService.Agregar(Inuevo);
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
+            }
+
+            Response.Redirect("Default.aspx", false);
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Default.aspx");
+            Response.Redirect("Default.aspx", false);
         }
 
         protected void btnModificarTecnico_Click(object sender, EventArgs e)

@@ -33,22 +33,13 @@ namespace TP5_CallCenter_Sepulveda_Varela
         protected global::System.Web.UI.WebControls.Button btnNuevoTicket;
 
         /// <summary>
-        /// Control btnPanelAdmin.
+        /// Control lblTUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPanelAdmin;
-
-        /// <summary>
-        /// Control btnEliminar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEliminar;
+        protected global::System.Web.UI.WebControls.Label lblTUsuario;
 
         /// <summary>
         /// Control lblNombre.
@@ -87,39 +78,48 @@ namespace TP5_CallCenter_Sepulveda_Varela
         protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
-        /// Control lblNombreTec.
+        /// Control lblEstadisticas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreTec;
+        protected global::System.Web.UI.WebControls.Label lblEstadisticas;
 
         /// <summary>
-        /// Control lblEspecialidadTec.
+        /// Control lblTotales.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEspecialidadTec;
+        protected global::System.Web.UI.WebControls.Label lblTotales;
 
         /// <summary>
-        /// Control lblTelefonoTec.
+        /// Control lblAbiertos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTelefonoTec;
+        protected global::System.Web.UI.WebControls.Label lblAbiertos;
 
         /// <summary>
-        /// Control lblEmailTec.
+        /// Control lblCerrados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmailTec;
+        protected global::System.Web.UI.WebControls.Label lblCerrados;
+
+        /// <summary>
+        /// Control btnPanelAdmin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPanelAdmin;
     }
 }

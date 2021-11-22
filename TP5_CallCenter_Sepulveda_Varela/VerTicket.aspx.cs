@@ -24,9 +24,10 @@ namespace TP5_CallCenter_Sepulveda_Varela
                 cargar_incidencias();
                 cargar_cliente();
                 cargar_usuario();
-                cargar_tecnico();
+                cargar_estado();
                 Session.Add("TID", VTicket.ID);
-            }    
+                ddlEstados.Items.FindByValue(VTicket.PEstado.ID.ToString()).Selected = true;
+            }
         }
 
         public void cargar_ticket()
@@ -45,7 +46,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
-                Response.Redirect("Error.aspx");
+                Response.Redirect("Error.aspx", false);
             }
         }
 
@@ -62,7 +63,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
-                Response.Redirect("Error.aspx");
+                Response.Redirect("Error.aspx", false);
             }
             
         }
@@ -82,11 +83,11 @@ namespace TP5_CallCenter_Sepulveda_Varela
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
-                Response.Redirect("Error.aspx");
+                Response.Redirect("Error.aspx", false);
             }
         }
 
-        private void cargar_tecnico()
+        private void cargar_estado()
         {
             EstadoServicio EstadoService = new EstadoServicio();
             VEstados = EstadoService.Listar();
@@ -100,7 +101,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
-                Response.Redirect("Error.aspx");
+                Response.Redirect("Error.aspx", false);
             }
         }
 
@@ -121,19 +122,14 @@ namespace TP5_CallCenter_Sepulveda_Varela
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
-                Response.Redirect("Error.aspx");
+                Response.Redirect("Error.aspx", false);
             }
-        }
-
-        protected void btnSalir_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Default.aspx");
         }
 
         protected void btnCargarIncidencia_Click(object sender, EventArgs e)
         {
             
-            Response.Redirect("NuevaIncidencia.aspx");
+            Response.Redirect("NuevaIncidencia.aspx",false);
         }
 
         protected void btnEstado_Click(object sender, EventArgs e)
@@ -143,12 +139,18 @@ namespace TP5_CallCenter_Sepulveda_Varela
             if (int.Parse(ddlEstados.SelectedItem.Value) != VTicket.PEstado.ID)
             {
                 Session.Add("TEstado", ddlEstados.SelectedItem.Value);
-                Response.Redirect("NuevaIncidencia.aspx");
+                Response.Redirect("NuevaIncidencia.aspx", false);
             }
             else
             {
-                lblEstado.CssClass = "btn-danger";
+                lblEstado.CssClass = "btn-danger p-2 ps-3 pe-3";
             }
         }
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx", false);
+        }
+        
     }
 }

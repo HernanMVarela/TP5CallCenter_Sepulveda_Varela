@@ -15,7 +15,7 @@ namespace Servicios
             AccesoDB Datos = new AccesoDB();
             try
             {
-                Datos.SetearComando("SELECT T.ID, E.NOMBRE AS ESPECIALIDAD, T.Nombre, T.Apellido, T.Telefono, T.Mail FROM Tecnicos T INNER JOIN ESPECIALIDADES E ON E.ID=T.IDESP");
+                Datos.SetearComando("SELECT T.ID, E.ID AS EID, E.NOMBRE AS ESPECIALIDAD, T.Nombre, T.Apellido, T.Telefono, T.Mail FROM Tecnicos T INNER JOIN ESPECIALIDADES E ON E.ID=T.IDESP");
                 Datos.LecturaDB();
                 while (Datos.Lector.Read())
                 {
@@ -23,6 +23,7 @@ namespace Servicios
                     Aux.EspecialidadTecnico = new Especialidad();
                     
                     Aux.ID = (int)Datos.Lector["ID"];
+                    Aux.EspecialidadTecnico.ID = (int)Datos.Lector["EID"];
                     Aux.EspecialidadTecnico.Nombre = (string)Datos.Lector["ESPECIALIDAD"];
                     Aux.Nombre = (string)Datos.Lector["Nombre"];
                     Aux.Apellido = (string)Datos.Lector["Apellido"];

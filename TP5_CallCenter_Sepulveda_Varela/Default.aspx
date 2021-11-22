@@ -21,83 +21,46 @@
                                 <asp:BoundField DataField="PEstado.Nombre" HeaderText="Estado" SortExpression="PEstado.Nombre" />
                                 <asp:BoundField DataField="Fecha_Creacion" HeaderText="Creacion" DataFormatString="{0:d}" SortExpression="Fecha_Creacion" />
                                 <asp:BoundField DataField="Fecha_Cierre" HeaderText="Cierre" DataFormatString="{0:d}" SortExpression="Fecha_Cierre" />
-                                <asp:ButtonField Text="Select" CommandName="Select" ItemStyle-Width="150" />
+                                <asp:ButtonField Text="Ver ticket" CommandName="Select" ItemStyle-Width="150" />
                             </Columns>
                         </asp:GridView>
                     </div>
                 </div>
-                <div class="row mb-2 mt-2">
-                    <div class="col-2 d-flex justify-content-center align-items-center">
-                        <asp:Button ID="btnNuevoTicket" class="btn btn-info" OnClick="btnNuevoTicket_Click" runat="server" Text="Nuevo Ticket"/>
+                <div class="row mb-3 mt-3 p-2">
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <asp:Button ID="btnNuevoTicket" class="btn btn-info w-75 fs-4 p-2" OnClick="btnNuevoTicket_Click" runat="server" Text="Nuevo Ticket"/>
                     </div>
-                    <div class="col-2 d-flex justify-content-center align-items-center">
-
+                    <div class="col d-flex justify-content-center align-items-center">
                     </div>
-                    <div class="col-2 d-flex justify-content-center align-items-center">
-                        <asp:Button ID="btnPanelAdmin" CssClass="btn btn-warning" style="height:70px; width:stretch;" OnClick="btnPanelAdmin_Click" runat="server" Text="Panel de administración" />
-                    </div>
-                    <div class="col-3 d-flex justify-content-center align-items-center">
-
-                    </div>
-                    <div class="col-3 d-flex justify-content-center align-items-center">
-                        <asp:Button ID="btnEliminar" CssClass="btn btn-danger" runat="server" Text="Eliminar" />
+                    <div class="col-4 d-flex justify-content-center align-items-center">
                     </div>
                 </div>
-                
             </div>
             <div class="col-3 mb-2 mt-2">    
                 <div class="row h-auto cuadro_uno">
-                    <div class="col">
-                        <div class="row mb-2 mt-2">
-                            <div class="col d-flex justify-content-center align-items-center">
-                                <h1>Usuario</h1>
-                            </div>                            
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <div class="col d-flex justify-content-center align-items-center">
-                                <asp:Label ID="lblNombre" runat="server" style="font-size:25px;" Text=""></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <div class="col d-flex justify-content-center align-items-center">
-                                <asp:Label ID="lblUsuario" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <div class="col d-flex justify-content-center align-items-center">
-                                <asp:Label ID="lblTelefono" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row m-2">
-                            <div class="col d-flex justify-content-center align-items-center">
-                                <asp:Label ID="lblEmail" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
+                    <div class="col d-flex justify-content-center align-items-center flex-column">
+                        <asp:Label ID="lblTUsuario" CssClass="fs-1 fw-bold m-2" runat="server" Text="Usuario"></asp:Label>
+                        <asp:Label ID="lblNombre" CssClass="fs-3 m-1" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblUsuario" CssClass="fs-4 m-1" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblTelefono" CssClass="fs-4 m-1" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblEmail" CssClass="fs-4 m-1" runat="server" Text=""></asp:Label>
                     </div>
                 </div>
-        
                 <div class="row h-auto cuadro_uno">
-                    <div class="col">
-                        <div class="row m-1">
-                            <h1>Técnico</h1>
-                        </div>
-                        <div class="row m-1">
-                            <asp:Label ID="lblNombreTec" runat="server" Text="Nombre Completo"></asp:Label>
-                        </div>
-                        <div class="row m-1">
-                            <asp:Label ID="lblEspecialidadTec" runat="server" Text="Especialidad"></asp:Label>
-                        </div>
-                        <div class="row m-1">
-                            <asp:Label ID="lblTelefonoTec" runat="server" Text="Telefono"></asp:Label>
-                        </div>
-                        <div class="row m-1">
-                            <asp:Label ID="lblEmailTec" runat="server" Text="Direccion de correo"></asp:Label>
-                        </div>
+                    <div class="col p-2 d-flex justify-content-center align-items-center flex-column">
+                         <asp:Label ID="lblEstadisticas" CssClass="fs-1 fw-bold m-2" runat="server" Text="Estadísticas"></asp:Label>
+                         <asp:Label ID="lblTotales" CssClass="fs-4" runat="server" Text="Tickets Totales"></asp:Label>
+                         <asp:Label ID="lblAbiertos" CssClass="fs-4" runat="server" Text="Abiertos: "></asp:Label>
+                         <asp:Label ID="lblCerrados" CssClass="fs-4" runat="server" Text="Cerrados: "></asp:Label>
+                    </div>
+                </div>
+                <div class="row h-auto m-2">
+                    <div class="col-12 d-flex justify-content-center align-items-center">
+                        <asp:Button ID="btnPanelAdmin" CssClass="btn btn-warning fs-3 p-2" OnClick="btnPanelAdmin_Click" runat="server" Text="Panel de administración" />
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
 </asp:Content>

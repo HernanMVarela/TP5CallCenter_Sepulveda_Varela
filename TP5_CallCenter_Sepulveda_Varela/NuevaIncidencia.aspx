@@ -13,7 +13,7 @@
             </div>
             <div class="col-3 d-flex justify-content-center align-items-center flex-column">
                 <asp:Label ID="lblCategoria" CssClass="fw-bold fs-3 mb-3" runat="server" Text="Categoria"></asp:Label>
-                <asp:DropDownList ID="ddlCategoria" CssClass="w-75 p-2 fs-3" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlCategoria" CssClass="btn-secondary btn-lg dropdown-toggle p-2 fs-3" runat="server"></asp:DropDownList>
             </div>
             <div class="col-6 d-flex justify-content-center align-items-center flex-column">
                 <asp:Label ID="lblDescripcion" CssClass="fw-bold fs-3 mb-3" runat="server" Text="Descripcion"></asp:Label>

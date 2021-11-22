@@ -24,6 +24,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
                 cargar_tecnico();
                 cargar_categoria();
                 Session.Add("TID", Nuevo.IDTicket);
+
                 if (!(Session["TEstado"] is null))
                 {
                     btnCancelar.Enabled = false;
@@ -37,7 +38,6 @@ namespace TP5_CallCenter_Sepulveda_Varela
                 }
             }
         }
-
         private void cargar_tecnico()
         {
             TecnicoServicio TechService = new TecnicoServicio();
@@ -84,6 +84,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             IncidenciaServicio Servicio = new IncidenciaServicio();
             try
             {
+                // Check por comentario vacio
                 if (txbComentario.Text == "")
                 {
                     txbComentario.BorderColor = System.Drawing.Color.Red;

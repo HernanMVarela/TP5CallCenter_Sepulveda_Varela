@@ -49,8 +49,8 @@
                 <asp:Label ID="lblRTelefono" runat="server" Font-Size="20px" Text="TIPO"></asp:Label>
             </div>
             <div class="col-4 cuadro_uno d-flex flex-column justify-content-center align-items-center p-2">
-                <asp:DropDownList ID="ddlEstados" CssClass="btn-info p-2 m-3 w-50" Font-Size="24px" runat="server"></asp:DropDownList>
-                <asp:Button ID="btnEstado" CssClass="btn-info p-2 m-3 w-75" Font-Bold="true" Font-Size="24px" OnClick="btnEstado_Click" runat="server" Text="Cambiar estado" />
+                <asp:DropDownList ID="ddlEstados" CssClass="btn-light btn-lg dropdown-toggle p-2 m-3 w-50" Font-Size="24px" runat="server"></asp:DropDownList>
+                <asp:Button ID="btnEstado" CssClass="btn-secondary btn-lg p-2 m-3 w-75" Font-Bold="true" Font-Size="24px" OnClick="btnEstado_Click" runat="server" Text="Cambiar estado" />
                 <asp:Label ID="lblAtencion" runat="server" Font-Size="16px" Text="Atención: Cambiar el estado generará una nueva incidencia"></asp:Label>
             </div>
             <div class="col-4 cuadro_uno btn-outline-dark d-flex flex-column justify-content-center align-items-center p-2">
@@ -64,9 +64,8 @@
         </div>
         <div class="row w-auto m-2">
             <div class="col-12 d-flex justify-content-evenly align-items-center">
-                <asp:Button ID="btnAceptar" CssClass="btn btn-success p-2 w-25" runat="server" Text="Guardar cambios y salir" />
-                <asp:Button ID="btnCargarIncidencia" CssClass="btn btn-warning p-2 w-25" OnClick="btnCargarIncidencia_Click" runat="server" Text="Nueva Incidencia" />
-                <asp:Button ID="btnSalir" CssClass="btn btn-danger p-2 w-25" OnClick="btnSalir_Click" runat="server" Text="Salir sin guardar" />
+                <asp:Button ID="btnAceptar" CssClass="btn btn-info p-2 w-25" OnClick="btnAceptar_Click" runat="server" Text="Volver" />
+                <asp:Button ID="btnCargarIncidencia" CssClass="btn btn-info p-2 w-25" OnClick="btnCargarIncidencia_Click" runat="server" Text="Nueva Incidencia" />
                 </div>
         </div>
     </div>

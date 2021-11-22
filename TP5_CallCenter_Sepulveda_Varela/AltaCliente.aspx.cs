@@ -26,6 +26,8 @@ namespace TP5_CallCenter_Sepulveda_Varela
                     txbCuit.Text = Nuevo.Cuit;
                     txbEmail.Text = Nuevo.Email;
                     txbTelefono.Text = Nuevo.Telefono;
+                    ddlTipoCliente.Items.FindByValue(Nuevo.Tipo.ID.ToString()).Selected = true;
+
                 }
             }
         }

@@ -96,13 +96,49 @@ namespace Servicios
                 Datos.SetearComando("UPDATE TICKETS SET IDESTADO=@IDEstado where ID=@ID");
                 Datos.setearParametros("@ID", VEstado.ID);
                 Datos.setearParametros("@IDEstado", VEstado.PEstado.ID);
-                Datos.LecturaDB();
+                Datos.EjecutarAccion();
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
+
+        public void Agregar(Ticket nuevo)
+        {
+            AccesoDB Datos = new AccesoDB();
+            try
+            {
+                Datos.SetearComando("INSERT INTO TICKETS (TITULO,COMENTARIO,IDESTADO,IDUSUARIO,IDCLIENTE,FECHA_CREACION,FECHA_CIERRE) VALUES (@Titulo, @Comentario, @IDEstado, @IDUsuario, @IDCliente, @Creacion, @Cierre)");
+                Datos.setearParametros("@Titulo", nuevo.Titulo);
+                Datos.setearParametros("@Comentario",nuevo.Comentario);
+                Datos.setearParametros("@IDEstado",nuevo.PEstado.ID);
+                Datos.setearParametros("@IDUsuario",nuevo.PResponsable.ID);
+                Datos.setearParametros("@IDCliente", nuevo.PCliente.ID);
+                Datos.setearParametros("@Creacion",nuevo.Fecha_Creacion);
+                Datos.setearParametros("@Cierre",nuevo.Fecha_Cierre);
+                Datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int BuscarUltimo()
+        {
+            int id = 0;
+            AccesoDB Datos = new AccesoDB();
+
+            Datos.SetearComando("SELECT TOP 1 T.ID as TID FROM TICKETS T ORDER BY ID DESC");
+            Datos.LecturaDB();
+            if(Datos.Lector.Read() && !(Datos.Lector["TID"] is DBNull))
+            {
+                id=Convert.ToInt32(Datos.Lector["TID"]);
+            }
+
+            return id;
+        }
+
     }
 }

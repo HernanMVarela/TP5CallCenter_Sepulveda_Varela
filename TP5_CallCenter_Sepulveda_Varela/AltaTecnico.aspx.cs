@@ -27,6 +27,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
                     txbApellido.Text = nuevo.Apellido;
                     txbEmail.Text = nuevo.Email;
                     txbTelefono.Text = nuevo.Telefono;
+                    ddlEspecialidad.Items.FindByValue(nuevo.EspecialidadTecnico.ID.ToString()).Selected = true;
                 }
             }
         }
@@ -44,7 +45,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
-                Response.Redirect("Error.aspx");
+                Response.Redirect("Error.aspx", false);
             }
         }
 
@@ -102,7 +103,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
-                Response.Redirect("Error.aspx");
+                Response.Redirect("Error.aspx", false);
             }
 
             TecnicoServicio TechService = new TecnicoServicio();
