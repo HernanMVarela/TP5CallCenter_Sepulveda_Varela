@@ -65,5 +65,17 @@ namespace TP5_CallCenter_Sepulveda_Varela
             Session.Add("TicketID", Convert.ToInt32(row.Cells[0].Text));
             Response.Redirect("VerTicket.aspx");
         }
+
+        protected void gvTickets_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DateTime cierre = Convert.ToDateTime(e.Row.Cells[6].Text);
+                if (cierre.ToShortDateString() == "01-Jan-01")
+                {
+                    e.Row.Cells[6].Text = "Sin Fecha";
+                }
+            }
+        }
     }
 }

@@ -11,8 +11,8 @@
                     </div>
                 </div>
                 <div class="row mb-2 mt-2">
-                    <div class="col-12" style="overflow-y: scroll;height: 400px;">   
-                        <asp:GridView ID="gvTickets" class="table align-middle table-info table-striped table-hover" AutoGenerateColumns="false" OnSelectedIndexChanged="gvTickets_SelectedIndexChanged" runat="server">
+                    <div class="col-12" style="overflow-y: scroll;height: 400px;">    
+                        <asp:GridView ID="gvTickets" class="table align-middle table-info table-striped table-hover" AutoGenerateColumns="false" OnSelectedIndexChanged="gvTickets_SelectedIndexChanged" OnRowDataBound="gvTickets_RowDataBound" runat="server">
                             <Columns>
                                 <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" />
                                 <asp:BoundField DataField="Titulo" HeaderText="Asunto" SortExpression="Titulo" />
@@ -39,19 +39,19 @@
             <div class="col-3 mb-2 mt-2">    
                 <div class="row h-auto cuadro_uno">
                     <div class="col d-flex justify-content-center align-items-center flex-column">
-                        <asp:Label ID="lblTUsuario" CssClass="fs-1 fw-bold m-2" runat="server" Text="Usuario"></asp:Label>
-                        <asp:Label ID="lblNombre" CssClass="fs-3 m-1" runat="server" Text=""></asp:Label>
-                        <asp:Label ID="lblUsuario" CssClass="fs-4 m-1" runat="server" Text=""></asp:Label>
-                        <asp:Label ID="lblTelefono" CssClass="fs-4 m-1" runat="server" Text=""></asp:Label>
-                        <asp:Label ID="lblEmail" CssClass="fs-4 m-1" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblTUsuario" CssClass="fs-2 fw-bold m-2" runat="server" Text="Usuario"></asp:Label>
+                        <asp:Label ID="lblNombre" CssClass="fs-4 m-1" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblUsuario" CssClass="fs-5 m-1" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblTelefono" CssClass="fs-5 m-1" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblEmail" CssClass="fs-5 m-1" runat="server" Text=""></asp:Label>
                     </div>
                 </div>
                 <div class="row h-auto cuadro_uno">
                     <div class="col p-2 d-flex justify-content-center align-items-center flex-column">
-                         <asp:Label ID="lblEstadisticas" CssClass="fs-1 fw-bold m-2" runat="server" Text="Estadísticas"></asp:Label>
-                         <asp:Label ID="lblTotales" CssClass="fs-4" runat="server" Text="Tickets Totales"></asp:Label>
-                         <asp:Label ID="lblAbiertos" CssClass="fs-4" runat="server" Text="Abiertos: "></asp:Label>
-                         <asp:Label ID="lblCerrados" CssClass="fs-4" runat="server" Text="Cerrados: "></asp:Label>
+                         <asp:Label ID="lblEstadisticas" CssClass="fs-2 fw-bold m-2" runat="server" Text="Estadísticas"></asp:Label>
+                         <asp:Label ID="lblTotales" CssClass="fs-5" runat="server" Text="Tickets Totales"></asp:Label>
+                         <asp:Label ID="lblAbiertos" CssClass="fs-5" runat="server" Text="Abiertos: "></asp:Label>
+                         <asp:Label ID="lblCerrados" CssClass="fs-5" runat="server" Text="Cerrados: "></asp:Label>
                     </div>
                 </div>
                 <div class="row h-auto m-2">

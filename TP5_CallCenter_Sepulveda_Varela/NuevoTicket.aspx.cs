@@ -102,7 +102,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             {
                 Tnuevo.Titulo = txbAsunto.Text;
                 Tnuevo.Comentario = txbDescripcion.Text;
-                Tnuevo.Fecha_Creacion = DateTime.Now.Date;
+                Tnuevo.Fecha_Creacion = DateTime.Now;
                 Tnuevo.PResponsable = new Usuario();
                 Tnuevo.PResponsable.ID = 1;                // Pendiente a modificar con usuario logueado
                 Tnuevo.PCliente = new Cliente();
@@ -114,7 +114,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
                 Inuevo.PCategoria = new Categoria();
                 Inuevo.PCategoria.ID = int.Parse(ddlCategoria.SelectedItem.Value);
-                Inuevo.Modificacion = DateTime.Now.Date;
+                Inuevo.Modificacion = DateTime.Now;
                 Inuevo.Descripcion = txbComentario.Text;
                 Inuevo.PTecnico = new Tecnico();
                 Inuevo.PTecnico.ID = int.Parse(ddlTecnico.SelectedItem.Value);

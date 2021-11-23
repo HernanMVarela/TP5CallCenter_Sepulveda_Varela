@@ -69,7 +69,11 @@ namespace Servicios
                         Aux.PEstado.ID = Convert.ToInt32(Datos.Lector["TEID"]);
                         Aux.PEstado.Nombre = (string)Datos.Lector["Estado"];
                         Aux.Fecha_Creacion = (DateTime)Datos.Lector["FCreacion"];
-                        Aux.Fecha_Cierre = (DateTime)Datos.Lector["FCierre"];
+                        if (!(Datos.Lector["FCierre"] is DBNull))
+                        {
+                            Aux.Fecha_Cierre = (DateTime)Datos.Lector["FCierre"];
+                        }
+                        
                         if (!(Datos.Lector["CNombre"] is DBNull))
                         {
                             Aux.PCliente = new Cliente();
@@ -93,9 +97,10 @@ namespace Servicios
             AccesoDB Datos = new AccesoDB();
             try
             {
-                Datos.SetearComando("UPDATE TICKETS SET IDESTADO=@IDEstado where ID=@ID");
+                Datos.SetearComando("UPDATE TICKETS SET IDESTADO=@IDEstado, FECHA_CIERRE=@Cierre where ID=@ID");
                 Datos.setearParametros("@ID", VEstado.ID);
                 Datos.setearParametros("@IDEstado", VEstado.PEstado.ID);
+                Datos.setearParametros("@Cierre", DBNull.Value);
                 Datos.EjecutarAccion();
             }
             catch (Exception ex)
@@ -115,8 +120,8 @@ namespace Servicios
                 Datos.setearParametros("@IDEstado",nuevo.PEstado.ID);
                 Datos.setearParametros("@IDUsuario",nuevo.PResponsable.ID);
                 Datos.setearParametros("@IDCliente", nuevo.PCliente.ID);
-                Datos.setearParametros("@Creacion",nuevo.Fecha_Creacion);
-                Datos.setearParametros("@Cierre",nuevo.Fecha_Cierre);
+                Datos.setearParametros("@Creacion",nuevo.Fecha_Creacion.Date);
+                Datos.setearParametros("@Cierre",nuevo.Fecha_Cierre.Date);
                 Datos.EjecutarAccion();
             }
             catch (Exception ex)
