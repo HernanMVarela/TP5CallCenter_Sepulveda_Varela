@@ -80,6 +80,7 @@ namespace Servicios
                             Aux.PCliente.RazonSocial = (string)Datos.Lector["CNombre"];
                             Aux.PCliente.Cuit = (string)Datos.Lector["CCuit"];
                         }
+
                     }
 
                     Lista.Add(Aux);
