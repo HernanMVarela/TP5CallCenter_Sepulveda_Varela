@@ -83,7 +83,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
                 else
                 {
                     txbUsername.BorderColor = System.Drawing.Color.White;
-                    nuevo.Telefono = (string)txbUsername.Text;
+                    nuevo.NombreUsuario = (string)txbUsername.Text;
                 }
                 if (txbPass.Text == "" || txbPass2.Text == "")
                 {
@@ -108,6 +108,8 @@ namespace TP5_CallCenter_Sepulveda_Varela
                 nuevo.Tipo.ID = int.Parse(ddlTipo.SelectedItem.Value);
                 nuevo.Tipo.Tipo = ddlTipo.SelectedItem.Text;
 
+                UsuarioServicio uService = new UsuarioServicio();
+                uService.AgregarDB(nuevo);
 
             }
             catch (Exception ex)

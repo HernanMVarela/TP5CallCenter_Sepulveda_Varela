@@ -28,6 +28,7 @@ namespace Servicios
                     }
                     Aux.Nombre = (string)Datos.Lector["Nombre"];
                     Aux.Apellido = (string)Datos.Lector["Apellido"];
+                    Aux.NombreCompleto = Aux.Nombre + " " + Aux.Apellido;
                     Aux.Telefono = (string)Datos.Lector["Telefono"];
                     Aux.Email = (string)Datos.Lector["Mail"];
 
@@ -82,12 +83,14 @@ namespace Servicios
 
             try
             {
-                datos.SetearComando("insert into USUARIOS (Nombre, Apellido, Mail, Telefono, IDESP) values (@Nombre, @Apellido, @Email, @Telefono, @IDEspecialidad)");
+                datos.SetearComando("insert into USUARIOS (NombreUsuario, Clave, Nombre, Apellido, Mail, Telefono, IDTipo) values (@NombreUsuario, @Clave, @Nombre, @Apellido, @Email, @Telefono, @IDTipo)");
+                datos.setearParametros("@NombreUsuario", nuevo.NombreUsuario);
+                datos.setearParametros("@Clave", nuevo.Clave);
                 datos.setearParametros("@Nombre", nuevo.Nombre);
                 datos.setearParametros("@Apellido", nuevo.Apellido);
                 datos.setearParametros("@Email", nuevo.Email);
                 datos.setearParametros("@Telefono", nuevo.Telefono);
-                datos.setearParametros("@IDEspecialidad", nuevo.Tipo.ID);
+                datos.setearParametros("@IDTipo", nuevo.Tipo.ID);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
