@@ -71,7 +71,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 DateTime cierre = Convert.ToDateTime(e.Row.Cells[6].Text);
-                if (cierre.ToShortDateString() == "01-Jan-01")
+                if (cierre.Year < 2005)
                 {
                     e.Row.Cells[6].Text = "Sin Fecha";
                 }

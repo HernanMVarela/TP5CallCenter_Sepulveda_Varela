@@ -41,7 +41,14 @@ namespace TP5_CallCenter_Sepulveda_Varela
                 txbComentario.Text = VTicket.Comentario.ToString();
                 lblEstado.Text = "Estado: " + VTicket.PEstado.Nombre;
                 lblCreacion.Text = "Fecha de creación: " + VTicket.Fecha_Creacion.ToString("dd/MM/yyyy");
-                lblCierre.Text = "Fecha de cierre: " + VTicket.Fecha_Cierre.ToString("dd/MM/yyyy");
+                if (VTicket.Fecha_Cierre.Year < 2005)
+                {
+                    lblCierre.Text = "Fecha de cierre: Sin Fecha";
+                }
+                else
+                {
+                    lblCierre.Text = "Fecha de cierre: " + VTicket.Fecha_Cierre.ToString("dd/MM/yyyy");
+                }
             }
             catch (Exception ex)
             {
@@ -56,7 +63,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             try
             {
                 LIncidencia = Service.Listar(Convert.ToInt32(Session["TicketID"]));
-
+                Session.Add("ListaInc", LIncidencia);
                 gvIncidencias.DataSource = LIncidencia;
                 gvIncidencias.DataBind();
             }
@@ -128,7 +135,11 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         protected void btnCargarIncidencia_Click(object sender, EventArgs e)
         {
-            
+            Incidencia aux = new Incidencia();
+            LIncidencia = (List<Incidencia>)Session["ListaInc"];
+
+            aux = LIncidencia.Last();
+            Session.Add("Incidencia", aux);
             Response.Redirect("NuevaIncidencia.aspx",false);
         }
 

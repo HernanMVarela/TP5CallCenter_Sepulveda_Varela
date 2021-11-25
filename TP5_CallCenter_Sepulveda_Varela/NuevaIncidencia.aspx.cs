@@ -25,6 +25,17 @@ namespace TP5_CallCenter_Sepulveda_Varela
                 cargar_categoria();
                 Session.Add("TID", Nuevo.IDTicket);
 
+                if (!(Session["Incidencia"] is null))
+                {
+                    Incidencia aux = new Incidencia();
+
+                    aux = (Incidencia)Session["Incidencia"];
+
+                    ddlTecnico.Items.FindByValue(aux.PTecnico.ID.ToString()).Selected = true;
+                    ddlCategoria.Items.FindByValue(aux.PCategoria.ID.ToString()).Selected = true;
+                }
+
+
                 if (!(Session["TEstado"] is null))
                 {
                     btnCancelar.Enabled = false;
