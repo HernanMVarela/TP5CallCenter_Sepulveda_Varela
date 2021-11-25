@@ -123,6 +123,15 @@ namespace TP5_CallCenter_Sepulveda_Varela
         protected global::System.Web.UI.WebControls.Label lblPass;
 
         /// <summary>
+        /// lblPass2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPass2;
+
+        /// <summary>
         /// txbPass control.
         /// </summary>
         /// <remarks>
@@ -130,6 +139,15 @@ namespace TP5_CallCenter_Sepulveda_Varela
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbPass;
+
+        /// <summary>
+        /// txbPass2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbPass2;
 
         /// <summary>
         /// lblTipo control.

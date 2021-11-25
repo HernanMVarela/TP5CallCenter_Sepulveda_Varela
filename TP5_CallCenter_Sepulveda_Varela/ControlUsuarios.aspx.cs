@@ -76,6 +76,34 @@ namespace TP5_CallCenter_Sepulveda_Varela
                     txbTelefono.BorderColor = System.Drawing.Color.White;
                     nuevo.Telefono = (string)txbTelefono.Text;
                 }
+                if (txbUsername.Text == "")
+                {
+                    txbUsername.BorderColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    txbUsername.BorderColor = System.Drawing.Color.White;
+                    nuevo.Telefono = (string)txbUsername.Text;
+                }
+                if (txbPass.Text == "" || txbPass2.Text == "")
+                {
+                    txbPass.BorderColor = System.Drawing.Color.Red;
+                    txbPass2.BorderColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    if (txbPass.Text == txbPass2.Text)
+                    {
+                        nuevo.Clave = txbPass.Text;
+                        txbPass.BorderColor = System.Drawing.Color.White;
+                        txbPass2.BorderColor = System.Drawing.Color.White;
+                    }
+                    else
+                    {
+                        txbPass.BorderColor = System.Drawing.Color.Red;
+                        txbPass2.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
                 nuevo.Tipo = new TipoUsuario();
                 nuevo.Tipo.ID = int.Parse(ddlTipo.SelectedItem.Value);
                 nuevo.Tipo.Tipo = ddlTipo.SelectedItem.Text;
