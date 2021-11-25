@@ -118,6 +118,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\EstilosPropios.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="ControlUsuarios.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="favicon.ico" />
@@ -268,6 +269,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlUsuarios.aspx.cs">
+      <DependentUpon>ControlUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlUsuarios.aspx.designer.cs">
+      <DependentUpon>ControlUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

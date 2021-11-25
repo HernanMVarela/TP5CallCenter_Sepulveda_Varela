@@ -30,7 +30,10 @@ namespace Servicios
                         Aux.PEstado.ID = Convert.ToInt32(Datos.Lector["TEID"]);
                         Aux.PEstado.Nombre = (string)Datos.Lector["TEstado"];
                         Aux.Fecha_Creacion = (DateTime)Datos.Lector["FCreacion"];
-                        Aux.Fecha_Cierre = (DateTime)Datos.Lector["FCierre"];
+                        if (!(Datos.Lector["FCierre"] is DBNull))
+                        {
+                            Aux.Fecha_Cierre = (DateTime)Datos.Lector["FCierre"];
+                        }
                         Aux.PResponsable = new Usuario();
                         Aux.PResponsable.ID = Convert.ToInt32(Datos.Lector["TIDUsuario"]); 
                         if (!(Datos.Lector["TIDCliente"] is DBNull))
