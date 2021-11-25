@@ -125,7 +125,7 @@ namespace Servicios
                 Datos.setearParametros("@IDUsuario",nuevo.PResponsable.ID);
                 Datos.setearParametros("@IDCliente", nuevo.PCliente.ID);
                 Datos.setearParametros("@Creacion",nuevo.Fecha_Creacion.Date);
-                Datos.setearParametros("@Cierre",nuevo.Fecha_Cierre.Date);
+                Datos.setearParametros("@Cierre", DBNull.Value);
                 Datos.EjecutarAccion();
             }
             catch (Exception ex)

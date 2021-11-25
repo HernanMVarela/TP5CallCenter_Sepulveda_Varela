@@ -51,6 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TicketServicio.cs" />
     <Compile Include="TipoClienteServicio.cs" />
+    <Compile Include="TipoUsuarioServicio.cs" />
     <Compile Include="UsuarioServicio.cs" />
   </ItemGroup>
   <ItemGroup>
