@@ -93,5 +93,41 @@ namespace TP5_CallCenter_Sepulveda_Varela
         {
             Response.Redirect("AltaCliente.aspx", false);
         }
+
+        protected void btnModificarTecnico_Click(object sender, EventArgs e)
+        {
+            TecnicoServicio TechService = new TecnicoServicio();
+            Tecnico modificar = new Tecnico();
+            int id = 0;
+            id = int.Parse(ddlTecnico.SelectedItem.Value);
+            LTec = TechService.Listar();
+            modificar = LTec.Find(x => x.ID == id);
+            Session.Add("ModTecnico", modificar);
+            Response.Redirect("AltaTecnico.aspx", false);
+        }
+
+        protected void btnModificarUsuario_Click(object sender, EventArgs e)
+        {
+            UsuarioServicio UsrService = new UsuarioServicio();
+            Usuario modificar = new Usuario();
+            int id = 0;
+            id = int.Parse(ddlUsuario.SelectedItem.Value);
+            LUser = UsrService.Listar();
+            modificar = LUser.Find(x => x.ID == id);
+            Session.Add("ModUsuario", modificar);
+            Response.Redirect("ControlUsuarios.aspx", false);
+        }
+
+        protected void btnModificarCliente_Click(object sender, EventArgs e)
+        {
+            ClienteServicio CliService = new ClienteServicio();
+            Cliente modificar = new Cliente();
+            int id = 0;
+            id = int.Parse(ddlCliente.SelectedItem.Value);
+            LClie = CliService.Listar();
+            modificar = LClie.Find(x => x.ID == id);
+            Session.Add("ModCliente", modificar);
+            Response.Redirect("AltaCliente.aspx", false);
+        }
     }
 }

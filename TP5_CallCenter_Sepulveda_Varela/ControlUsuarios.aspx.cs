@@ -12,9 +12,25 @@ namespace TP5_CallCenter_Sepulveda_Varela
 {
     public partial class ControlUsuarios : System.Web.UI.Page
     {
+        Usuario nuevo = new Usuario(); 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) { cargar_tipocuenta(); }
+            if (!IsPostBack) 
+            {
+                cargar_tipocuenta();
+                if (!(Session["ModTecnico"] is null))
+                {
+                    nuevo = (Usuario)Session["ModUsuario"];
+                    txbNombre.Text = nuevo.Nombre;
+                    txbApellido.Text = nuevo.Apellido;
+                    txbEmail.Text = nuevo.Email;
+                    txbTelefono.Text = nuevo.Telefono;
+                    txbUsername.Text = nuevo.NombreUsuario;
+                    txbPass.Text = nuevo.Clave;
+                    txbPass2.Text = nuevo.Clave;
+                    ddlTipo.Items.FindByValue(nuevo.Tipo.ID.ToString()).Selected = true;
+                }
+            }
         }
         private void cargar_tipocuenta()
         {
@@ -37,7 +53,6 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            Usuario nuevo = new Usuario();
             try
             {
                 if (txbNombre.Text == "")
@@ -107,15 +122,25 @@ namespace TP5_CallCenter_Sepulveda_Varela
                 nuevo.Tipo = new TipoUsuario();
                 nuevo.Tipo.ID = int.Parse(ddlTipo.SelectedItem.Value);
                 nuevo.Tipo.Tipo = ddlTipo.SelectedItem.Text;
-
-                UsuarioServicio uService = new UsuarioServicio();
-                uService.AgregarDB(nuevo);
-
             }
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
                 Response.Redirect("Error.aspx", false);
+            }
+
+            if (!(Session["ModUsuario"] is null))
+            {
+                UsuarioServicio uService = new UsuarioServicio(); 
+                Usuario Aux = new Usuario();
+                Aux = (Usuario)Session["ModUsuario"];
+                nuevo.ID = Aux.ID;
+                uService.ModificarDB(nuevo);
+            }
+            else
+            {
+                UsuarioServicio uService = new UsuarioServicio();
+                uService.AgregarDB(nuevo);
             }
             Response.Redirect("PanelAdministracion.aspx", false);
         }
