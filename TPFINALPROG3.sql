@@ -17,7 +17,8 @@ create table Usuarios(
 	Nombre varchar(40) not null,
 	Apellido varchar(50) not null,
 	Telefono varchar(15) not null,
-	Mail varchar(100) not null
+	Mail varchar(100) not null,
+	ESTADO BIT NOT NULL
 )
 go
 
@@ -33,7 +34,8 @@ CREATE TABLE TECNICOS(
 	Apellido varchar(50) not null,
 	Telefono varchar(15) not null,
 	Mail varchar(100) not null,
-	IDESP INT NOT NULL FOREIGN KEY REFERENCES ESPECIALIDADES(ID)
+	IDESP INT NOT NULL FOREIGN KEY REFERENCES ESPECIALIDADES(ID),
+	ESTADO BIT NOT NULL
 )
 go
 
@@ -49,7 +51,8 @@ CREATE TABLE CLIENTES(
 	CUIT VARCHAR(25) NOT NULL,
 	EMAIL VARCHAR(100) NOT NULL,
 	TELEFONO VARCHAR(20) NOT NULL,
-	IDTIPO TINYINT NOT NULL FOREIGN KEY REFERENCES TIPOCLIENTES(ID)
+	IDTIPO TINYINT NOT NULL FOREIGN KEY REFERENCES TIPOCLIENTES(ID),
+	ESTADO BIT NOT NULL
 )
 GO
 
@@ -92,10 +95,10 @@ insert into TipoCuenta (Tipo) values
 ('Supervisor'),
 ('Telefonista')
 
-insert into Usuarios (NombreUsuario, Clave, IDTipo, Nombre, Apellido, Telefono, Mail) values
-('hvarela','Segura2021', 1, 'Hernan', 'Varela', '1234567','hernan@mail.com'),
-('csepulveda', 'Segura2021', 2, 'Christian', 'Sepulveda', '987645','christian@mail.com'),
-('Empleado','Segura2021', 3,'Umpa','Lumpa','123235','umpalumpa@mail.com')
+insert into Usuarios (NombreUsuario, Clave, IDTipo, Nombre, Apellido, Telefono, Mail, Estado) values
+('hvarela','Segura2021', 1, 'Hernan', 'Varela', '1234567','hernan@mail.com',1),
+('csepulveda', 'Segura2021', 2, 'Christian', 'Sepulveda', '987645','christian@mail.com',1),
+('Empleado','Segura2021', 3,'Umpa','Lumpa','123235','umpalumpa@mail.com',1)
 
 INSERT INTO ESPECIALIDADES (NOMBRE) VALUES 
 ('Licenciamiento'),
@@ -107,41 +110,41 @@ INSERT INTO ESPECIALIDADES (NOMBRE) VALUES
 ('Comunicaciones'),
 ('Administración de usuarios')
 
-INSERT INTO TECNICOS (Nombre, Apellido, Mail, Telefono, IDESP) VALUES
-('Courtney','Beard','Courtney.Beard@mail.com','1135021688',8),
-('Bailey','Scott','Bailey.Scott@mail.com','1164919711',3),
-('Luke','Nguyen','Luke.Nguyen@mail.com','1115228084',5),
-('Erika','Wilson','Erika.Wilson@mail.com','1139653875',7),
-('Nicholas','Davis','Nicholas.Davis@mail.com','1191608377',8),
-('James','Hernandez','James.Hernandez@mail.com','1136963020',3),
-('Christine','Lin','Christine.Lin@mail.com','1184653852',2),
-('Brandon','Harvey','Brandon.Harvey@mail.com','1118907236',6),
-('Aaron','Brooks','Aaron.Brooks@mail.com','1146367448',1),
-('Debra','White','Debra.White@mail.com','1161519196',4),
-('Crystal','Werner','Crystal.Werner@mail.com','1138221650',7),
-('Colin','Scott','Colin.Scott@mail.com','1197306270',4),
-('Jeremy','Cowan','Jeremy.Cowan@mail.com','1141621585',8),
-('Matthew','Jensen','Matthew.Jensen@mail.com','1181652242',2)
+INSERT INTO TECNICOS (Nombre, Apellido, Mail, Telefono, IDESP, Estado) VALUES
+('Courtney','Beard','Courtney.Beard@mail.com','1135021688',8,1),
+('Bailey','Scott','Bailey.Scott@mail.com','1164919711',3,1),
+('Luke','Nguyen','Luke.Nguyen@mail.com','1115228084',5,1),
+('Erika','Wilson','Erika.Wilson@mail.com','1139653875',7,1),
+('Nicholas','Davis','Nicholas.Davis@mail.com','1191608377',8,1),
+('James','Hernandez','James.Hernandez@mail.com','1136963020',3,1),
+('Christine','Lin','Christine.Lin@mail.com','1184653852',2,1),
+('Brandon','Harvey','Brandon.Harvey@mail.com','1118907236',6,1),
+('Aaron','Brooks','Aaron.Brooks@mail.com','1146367448',1,1),
+('Debra','White','Debra.White@mail.com','1161519196',4,1),
+('Crystal','Werner','Crystal.Werner@mail.com','1138221650',7,1),
+('Colin','Scott','Colin.Scott@mail.com','1197306270',4,1),
+('Jeremy','Cowan','Jeremy.Cowan@mail.com','1141621585',8,1),
+('Matthew','Jensen','Matthew.Jensen@mail.com','1181652242',2,1)
 
 INSERT INTO TIPOCLIENTES(NOMBRE) VALUES
 ('Persona'),
 ('Empresa')
 
-INSERT INTO CLIENTES (NOMBRE, CUIT, EMAIL, TELEFONO, IDTIPO) VALUES
-('Jessica Acosta','20-24351277-2','Jessica.Acosta@mail.com','1150578892',1),
-('Austin Walker','20-37201514-2','Austin.Walker@mail.com','1110754741',2),
-('Jamie James','20-23957982-2','Jamie.James@mail.com','1139560884',1),
-('Michael Williams','20-36634654-2','Michael.Williams@mail.com','1192280451',2),
-('Amber Davis','20-33140617-2','Amber.Davis@mail.com','1146033207',2),
-('Anthony Becker','20-24429888-2','Anthony.Becker@mail.com','1195080029',1),
-('Rebecca Bates','20-22259275-2','Rebecca.Bates@mail.com','1183942351',2),
-('Aaron Reynolds','20-31504374-2','Aaron.Reynolds@mail.com','1147047891',1),
-('Alyssa Bell','20-25932600-2','Alyssa.Bell@mail.com','1191027342',1),
-('Kevin Miller','20-34296645-2','Kevin.Miller@mail.com','1175328555',1),
-('Elizabeth Miller','20-35463432-2','Elizabeth.Miller@mail.com','1149490118',2),
-('Rachel Garcia','20-23653704-2','Rachel.Garcia@mail.com','1190683718',1),
-('Suzanne Tucker','20-28260036-2','Suzanne.Tucker@mail.com','1195636923',1),
-('Katherine Smith','20-29494344-2','Katherine.Smith@mail.com','1143756936',2)
+INSERT INTO CLIENTES (NOMBRE, CUIT, EMAIL, TELEFONO, IDTIPO, ESTADO) VALUES
+('Jessica Acosta','20-24351277-2','Jessica.Acosta@mail.com','1150578892',1,1),
+('Austin Walker','20-37201514-2','Austin.Walker@mail.com','1110754741',2,1),
+('Jamie James','20-23957982-2','Jamie.James@mail.com','1139560884',1,1),
+('Michael Williams','20-36634654-2','Michael.Williams@mail.com','1192280451',2,1),
+('Amber Davis','20-33140617-2','Amber.Davis@mail.com','1146033207',2,1),
+('Anthony Becker','20-24429888-2','Anthony.Becker@mail.com','1195080029',1,1),
+('Rebecca Bates','20-22259275-2','Rebecca.Bates@mail.com','1183942351',2,1),
+('Aaron Reynolds','20-31504374-2','Aaron.Reynolds@mail.com','1147047891',1,1),
+('Alyssa Bell','20-25932600-2','Alyssa.Bell@mail.com','1191027342',1,1),
+('Kevin Miller','20-34296645-2','Kevin.Miller@mail.com','1175328555',1,1),
+('Elizabeth Miller','20-35463432-2','Elizabeth.Miller@mail.com','1149490118',2,1),
+('Rachel Garcia','20-23653704-2','Rachel.Garcia@mail.com','1190683718',1,1),
+('Suzanne Tucker','20-28260036-2','Suzanne.Tucker@mail.com','1195636923',1,1),
+('Katherine Smith','20-29494344-2','Katherine.Smith@mail.com','1143756936',2,1)
 
 INSERT INTO ESTADOS (NOMBRE) VALUES
 ('Abierto'),

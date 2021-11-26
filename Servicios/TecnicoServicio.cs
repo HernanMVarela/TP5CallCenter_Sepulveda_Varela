@@ -15,7 +15,7 @@ namespace Servicios
             AccesoDB Datos = new AccesoDB();
             try
             {
-                Datos.SetearComando("SELECT T.ID, E.ID AS EID, E.NOMBRE AS ESPECIALIDAD, T.Nombre, T.Apellido, T.Telefono, T.Mail FROM Tecnicos T INNER JOIN ESPECIALIDADES E ON E.ID=T.IDESP");
+                Datos.SetearComando("SELECT T.ID, E.ID AS EID, E.NOMBRE AS ESPECIALIDAD, T.Nombre, T.Apellido, T.Telefono, T.Mail, T.ESTADO FROM Tecnicos T INNER JOIN ESPECIALIDADES E ON E.ID=T.IDESP");
                 Datos.LecturaDB();
                 while (Datos.Lector.Read())
                 {
@@ -30,6 +30,7 @@ namespace Servicios
                     Aux.NombreCompleto = (string)Datos.Lector["Nombre"] + " " + (string)Datos.Lector["Apellido"];
                     Aux.Telefono = (string)Datos.Lector["Telefono"];
                     Aux.Email = (string)Datos.Lector["Mail"];
+                    Aux.Estado = (bool)Datos.Lector["ESTADO"];
 
                     Lista.Add(Aux);
                 }
@@ -48,12 +49,13 @@ namespace Servicios
 
             try
             {
-                datos.SetearComando("insert into TECNICOS (Nombre, Apellido, Mail, Telefono, IDESP) values (@Nombre, @Apellido, @Email, @Telefono, @IDEspecialidad)");
+                datos.SetearComando("insert into TECNICOS (Nombre, Apellido, Mail, Telefono, IDESP, ESTADO) values (@Nombre, @Apellido, @Email, @Telefono, @IDEspecialidad, @Estado)");
                 datos.setearParametros("@Nombre", nuevo.Nombre);
                 datos.setearParametros("@Apellido", nuevo.Apellido);
                 datos.setearParametros("@Email", nuevo.Email);
                 datos.setearParametros("@Telefono", nuevo.Telefono);
                 datos.setearParametros("@IDEspecialidad", nuevo.EspecialidadTecnico.ID);
+                datos.setearParametros("@Estado", nuevo.Estado);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
@@ -68,13 +70,14 @@ namespace Servicios
 
             try
             {
-                datos.SetearComando("update TECNICOS set Nombre=@Nombre, Apellido=@Apellido, Mail=@Mail, Telefono=@Telefono, IDESP=@IDEspecialidad where ID=@Id");
+                datos.SetearComando("update TECNICOS set Nombre=@Nombre, Apellido=@Apellido, Mail=@Mail, Telefono=@Telefono, IDESP=@IDEspecialidad, ESTADO=@Estado where ID=@Id");
                 datos.setearParametros("@ID", modify.ID);
                 datos.setearParametros("@Nombre", modify.Nombre);
                 datos.setearParametros("@Apellido", modify.Apellido);
                 datos.setearParametros("@Mail", modify.Email);
                 datos.setearParametros("@Telefono", modify.Telefono);
                 datos.setearParametros("@IDEspecialidad", modify.EspecialidadTecnico.ID);
+                datos.setearParametros("@Estado", modify.Estado);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
@@ -83,14 +86,15 @@ namespace Servicios
             }
         }
 
-        public void BorrarDB(Tecnico borrarArt)
+        public void EstadoDB(Tecnico BorrarTec)
         {
             AccesoDB datos = new AccesoDB();
 
             try
             {
-                datos.SetearComando("delete from TECNICOS where ID = @ID");
-                datos.setearParametros("@ID", borrarArt.ID);
+                datos.SetearComando("update TECNICOS set ESTADO=@Estado where ID = @ID");
+                datos.setearParametros("@ID", BorrarTec.ID);
+                datos.setearParametros("@Estado", BorrarTec.Estado);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)

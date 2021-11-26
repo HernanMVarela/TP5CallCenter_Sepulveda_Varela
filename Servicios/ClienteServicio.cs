@@ -16,7 +16,7 @@ namespace Servicios
             AccesoDB Datos = new AccesoDB();
             try
             {
-                Datos.SetearComando("SELECT C.ID, T.Nombre as Tipo, C.IDTipo, C.NOMBRE, C.Cuit, C.Telefono, C.EMAIL FROM Clientes C INNER JOIN TIPOCLIENTES T ON T.ID=C.IDTIPO");
+                Datos.SetearComando("SELECT C.ID, T.Nombre as Tipo, C.IDTipo, C.NOMBRE, C.Cuit, C.Telefono, C.EMAIL, C.ESTADO FROM Clientes C INNER JOIN TIPOCLIENTES T ON T.ID=C.IDTIPO");
                 Datos.LecturaDB();
                 while (Datos.Lector.Read())
                 {
@@ -29,6 +29,7 @@ namespace Servicios
                     Aux.Cuit = (string)Datos.Lector["Cuit"];
                     Aux.Telefono = (string)Datos.Lector["Telefono"];
                     Aux.Email = (string)Datos.Lector["EMAIL"];
+                    Aux.Estado = (bool)Datos.Lector["ESTADO"];
 
                     Lista.Add(Aux);
                 }
@@ -47,7 +48,7 @@ namespace Servicios
             Cliente Aux = new Cliente();
             try
             {
-                Datos.SetearComando("SELECT C.ID, T.Nombre as Tipo, C.IDTipo, C.NOMBRE, C.Cuit, C.Telefono, C.EMAIL FROM Clientes C INNER JOIN TIPOCLIENTES T ON T.ID=C.IDTIPO WHERE C.ID=@ID");
+                Datos.SetearComando("SELECT C.ID, T.Nombre as Tipo, C.IDTipo, C.NOMBRE, C.Cuit, C.Telefono, C.EMAIL, C.ESTADO FROM Clientes C INNER JOIN TIPOCLIENTES T ON T.ID=C.IDTIPO WHERE C.ID=@ID");
                 Datos.setearParametros("@ID", ID);
                 Datos.LecturaDB();
                 Datos.Lector.Read();
@@ -60,7 +61,8 @@ namespace Servicios
                 Aux.Cuit = (string)Datos.Lector["Cuit"];
                 Aux.Telefono = (string)Datos.Lector["Telefono"];
                 Aux.Email = (string)Datos.Lector["EMAIL"];
-                
+                Aux.Estado = (bool)Datos.Lector["ESTADO"];
+
                 return Aux;
             }
             catch (Exception ex)
@@ -76,12 +78,13 @@ namespace Servicios
 
             try
             {
-                datos.SetearComando("insert into CLIENTES (NOMBRE, CUIT, EMAIL, Telefono, IDTipo) values (@Nombre, @CUIT, @Email, @Telefono, @IDTipo)");
+                datos.SetearComando("insert into CLIENTES (NOMBRE, CUIT, EMAIL, Telefono, IDTipo, ESTADO) values (@Nombre, @CUIT, @Email, @Telefono, @IDTipo, @Estado)");
                 datos.setearParametros("@Nombre", nuevo.RazonSocial);
                 datos.setearParametros("@CUIT", nuevo.Cuit);
                 datos.setearParametros("@Email", nuevo.Email);
                 datos.setearParametros("@Telefono", nuevo.Telefono);
                 datos.setearParametros("@IDTipo", nuevo.Tipo.ID);
+                datos.setearParametros("@Estado", nuevo.Estado);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
@@ -97,13 +100,14 @@ namespace Servicios
 
             try
             {
-                datos.SetearComando("update CLIENTES set Nombre=@Nombre, CUIT=@Cuit, Email=@Email, Telefono=@Telefono, IDTipo=@IDTipo where ID=@Id");
+                datos.SetearComando("update CLIENTES set Nombre=@Nombre, CUIT=@Cuit, Email=@Email, Telefono=@Telefono, IDTipo=@IDTipo, ESTADO=@Estado where ID=@Id");
                 datos.setearParametros("@ID", modify.ID);
                 datos.setearParametros("@Nombre", modify.RazonSocial);
                 datos.setearParametros("@Cuit", modify.Cuit);
                 datos.setearParametros("@Email", modify.Email);
                 datos.setearParametros("@Telefono", modify.Telefono);
                 datos.setearParametros("@IDTipo", modify.Tipo.ID);
+                datos.setearParametros("@Estado", modify.Estado);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
@@ -112,14 +116,15 @@ namespace Servicios
             }
         }
 
-        public void BorrarDB(Tecnico borrarArt)
+        public void BorrarDB(Cliente BorrarCli)
         {
             AccesoDB datos = new AccesoDB();
 
             try
             {
-                datos.SetearComando("delete from TECNICOS where ID = @ID");
-                datos.setearParametros("@ID", borrarArt.ID);
+                datos.SetearComando("update CLIENTES set ESTADO=@Estado where ID = @ID");
+                datos.setearParametros("@ID", BorrarCli.ID);
+                datos.setearParametros("@Estado", BorrarCli.Estado);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)

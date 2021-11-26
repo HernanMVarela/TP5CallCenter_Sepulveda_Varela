@@ -12,7 +12,7 @@ namespace Servicios
             AccesoDB Datos = new AccesoDB();
             try
             {
-                Datos.SetearComando("SELECT U.ID, U.NombreUsuario, U.Clave, T.ID, T.Tipo, U.Nombre, U.Apellido, U.Telefono, U.Mail FROM Usuarios U inner join TipoCuenta T on T.ID = U.IDTipo");
+                Datos.SetearComando("SELECT U.ID, U.NombreUsuario, U.Clave, T.ID, T.Tipo, U.Nombre, U.Apellido, U.Telefono, U.Mail, U.ESTADO FROM Usuarios U inner join TipoCuenta T on T.ID = U.IDTipo");
                 Datos.LecturaDB();
                 while (Datos.Lector.Read())
                 {
@@ -30,6 +30,7 @@ namespace Servicios
                     Aux.Apellido = (string)Datos.Lector["Apellido"];
                     Aux.Telefono = (string)Datos.Lector["Telefono"];
                     Aux.Email = (string)Datos.Lector["Mail"];
+                    Aux.Estado = (bool)Datos.Lector["ESTADO"];
 
                     Lista.Add(Aux);
                 }
@@ -49,7 +50,7 @@ namespace Servicios
             AccesoDB Datos = new AccesoDB();
             try
             {
-                Datos.SetearComando("SELECT U.ID, U.NombreUsuario, U.Clave, T.ID, T.Tipo, U.Nombre, U.Apellido, U.Telefono, U.Mail FROM Usuarios U inner join TipoCuenta T on T.ID = U.IDTipo WHERE U.ID=@ID");
+                Datos.SetearComando("SELECT U.ID, U.NombreUsuario, U.Clave, T.ID, T.Tipo, U.Nombre, U.Apellido, U.Telefono, U.Mail, U.ESTADO FROM Usuarios U inner join TipoCuenta T on T.ID = U.IDTipo WHERE U.ID=@ID");
                 Datos.setearParametros("@ID", ID);
                 Datos.LecturaDB();
                 if (Datos.Lector.Read()) {
@@ -66,6 +67,7 @@ namespace Servicios
                     Aux.Apellido = (string)Datos.Lector["Apellido"];
                     Aux.Telefono = (string)Datos.Lector["Telefono"];
                     Aux.Email = (string)Datos.Lector["Mail"];
+                    Aux.Estado = (bool)Datos.Lector["ESTADO"];
                 }
                 return Aux;
             }
