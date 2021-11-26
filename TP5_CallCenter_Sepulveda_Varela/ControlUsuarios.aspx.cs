@@ -18,7 +18,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             if (!IsPostBack) 
             {
                 cargar_tipocuenta();
-                if (!(Session["ModTecnico"] is null))
+                if (!(Session["ModUsuario"] is null))
                 {
                     nuevo = (Usuario)Session["ModUsuario"];
                     txbNombre.Text = nuevo.Nombre;
