@@ -24,6 +24,42 @@ namespace TP5_CallCenter_Sepulveda_Varela
         protected global::System.Web.UI.WebControls.Button btnAgregarTecnico;
 
         /// <summary>
+        /// ddlTecnico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTecnico;
+
+        /// <summary>
+        /// btnModificarTecnico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificarTecnico;
+
+        /// <summary>
+        /// chbBajaTecnico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chbBajaTecnico;
+
+        /// <summary>
+        /// btnBajaTecnico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBajaTecnico;
+
+        /// <summary>
         /// btnAgregarUsuario control.
         /// </summary>
         /// <remarks>
@@ -33,6 +69,42 @@ namespace TP5_CallCenter_Sepulveda_Varela
         protected global::System.Web.UI.WebControls.Button btnAgregarUsuario;
 
         /// <summary>
+        /// ddlUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlUsuario;
+
+        /// <summary>
+        /// btnModificarUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificarUsuario;
+
+        /// <summary>
+        /// chbBajaUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chbBajaUsuario;
+
+        /// <summary>
+        /// btnBajaUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBajaUsuario;
+
+        /// <summary>
         /// btnAgregarCliente control.
         /// </summary>
         /// <remarks>
@@ -40,5 +112,41 @@ namespace TP5_CallCenter_Sepulveda_Varela
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarCliente;
+
+        /// <summary>
+        /// ddlCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCliente;
+
+        /// <summary>
+        /// btnModificarCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificarCliente;
+
+        /// <summary>
+        /// chbBajaCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chbBajaCliente;
+
+        /// <summary>
+        /// btnBajaCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBajaCliente;
     }
 }

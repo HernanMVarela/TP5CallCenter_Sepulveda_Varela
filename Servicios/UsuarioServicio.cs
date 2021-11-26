@@ -28,6 +28,7 @@ namespace Servicios
                     }
                     Aux.Nombre = (string)Datos.Lector["Nombre"];
                     Aux.Apellido = (string)Datos.Lector["Apellido"];
+                    Aux.NombreCompleto = Aux.Nombre + " " + Aux.Apellido;
                     Aux.Telefono = (string)Datos.Lector["Telefono"];
                     Aux.Email = (string)Datos.Lector["Mail"];
                     Aux.Estado = (bool)Datos.Lector["ESTADO"];
@@ -76,6 +77,51 @@ namespace Servicios
                 throw ex;
             }
 
+        }
+
+        public void AgregarDB(Usuario nuevo)
+        {
+            AccesoDB datos = new AccesoDB();
+
+            try
+            {
+                datos.SetearComando("insert into USUARIOS (NombreUsuario, Clave, Nombre, Apellido, Mail, Telefono, IDTipo) values (@NombreUsuario, @Clave, @Nombre, @Apellido, @Email, @Telefono, @IDTipo)");
+                datos.setearParametros("@NombreUsuario", nuevo.NombreUsuario);
+                datos.setearParametros("@Clave", nuevo.Clave);
+                datos.setearParametros("@Nombre", nuevo.Nombre);
+                datos.setearParametros("@Apellido", nuevo.Apellido);
+                datos.setearParametros("@Email", nuevo.Email);
+                datos.setearParametros("@Telefono", nuevo.Telefono);
+                datos.setearParametros("@IDTipo", nuevo.Tipo.ID);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void ModificarDB(Usuario modify)
+        {
+            AccesoDB datos = new AccesoDB();
+
+            try
+            {
+                datos.SetearComando("update USUARIOS set NombreUsuario=@NombreUsuario, Clave=@Clave, Nombre=@Nombre, Apellido=@Apellido, Mail=@Mail, Telefono=@Telefono, IDTipo=@IDTipo where ID=@Id");
+                datos.setearParametros("@ID", modify.ID);
+                datos.setearParametros("@Nombre", modify.Nombre);
+                datos.setearParametros("@Apellido", modify.Apellido);
+                datos.setearParametros("@Mail", modify.Email);
+                datos.setearParametros("@Telefono", modify.Telefono);
+                datos.setearParametros("@IDTipo", modify.Tipo.ID);
+                datos.setearParametros("@NombreUsuario", modify.NombreUsuario);
+                datos.setearParametros("@Clave", modify.Clave);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
     }
