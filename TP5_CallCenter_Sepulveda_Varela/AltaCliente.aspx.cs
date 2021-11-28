@@ -17,6 +17,11 @@ namespace TP5_CallCenter_Sepulveda_Varela
         {
             if (!IsPostBack)
             {
+                if (Session["UserID"] == null)
+                {
+                    Session.Add("Error", "No hay un usuario logueado");
+                    Response.Redirect("Error.aspx", false);
+                }
                 CargarTCliente();
                 
                 if (!(Session["ModCliente"] is null))

@@ -18,11 +18,25 @@ namespace TP5_CallCenter_Sepulveda_Varela
         {
             if (!IsPostBack)
             {
+                if (Session["UserID"] == null)
+                {
+                    Session.Add("Error", "No hay un usuario logueado");
+                    Response.Redirect("Error.aspx", false);
+                }
+                else
+                {
+                    UsuarioServicio UserService = new UsuarioServicio();
+                    Usuario LogUser = UserService.Buscar((int)Session["UserID"]);
+                    if(LogUser.Tipo.Tipo != "Administrador")
+                    {
+                        Session.Add("Error", "No tiene permisos para ingresar a esta página");
+                        Response.Redirect("Error.aspx", false);
+                    }
+                }
                 cargar_cliente();
                 cargar_tecnico();
                 cargar_usuario();
             }
-
         }
 
         private void cargar_tecnico()

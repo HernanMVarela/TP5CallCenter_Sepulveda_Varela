@@ -13,9 +13,10 @@
                 <h2>Service Desk</h2>
             </div>
             <div class="col-6 p-2 d-flex justify-content-center align-items-center flex-column">
+                <asp:Label ID="lblError" runat="server" CssClass="m-2 p-2 fs-5 alert-danger" Visible="false" Text="Usuario o contraseña incorrectos!"></asp:Label>
                 <asp:TextBox ID="txbUsuario" runat="server" CssClass="m-2 p-2 w-50" Text="Usuario"></asp:TextBox>
-                <asp:TextBox ID="txbPass" runat="server" CssClass="m-2 p-2 w-50" Text="Contraseña" TextMode="Password" ></asp:TextBox>
-                <asp:Button ID="btnIngresar" CssClass="btn btn-primary m-2 p-2 w-25" runat="server" OnClick="btnIngresar_Click1" Text="Ingresar" />
+                <asp:TextBox ID="txbPass" runat="server" CssClass="m-2 p-2 w-50" TextMode="Password" ></asp:TextBox>
+                <asp:Button ID="btnIngresar" CssClass="btn btn-primary m-2 p-2 w-25" runat="server" OnClick="btnIngresar_Click" Text="Ingresar" />
             </div>
         </div>
    </div>

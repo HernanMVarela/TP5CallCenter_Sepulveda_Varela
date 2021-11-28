@@ -18,6 +18,12 @@ namespace Dominio
             return string.Format("{0},{1},{2}",Nombre,Apellido,NombreUsuario);
             // return Nombre;
         }
-
+        
+        public Usuario(string user, string pass)
+        {
+            NombreUsuario = user;
+            Clave = pass;
+        }
+        public Usuario() { }
     }
 }

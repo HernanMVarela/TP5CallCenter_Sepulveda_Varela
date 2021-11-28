@@ -17,6 +17,11 @@ namespace TP5_CallCenter_Sepulveda_Varela
         {
             if (!IsPostBack) 
             {
+                if (Session["UserID"] == null)
+                {
+                    Session.Add("Error", "No hay un usuario logueado");
+                    Response.Redirect("Error.aspx", false);
+                }
                 cargar_tipocuenta();
                 if (!(Session["ModUsuario"] is null))
                 {
@@ -26,8 +31,11 @@ namespace TP5_CallCenter_Sepulveda_Varela
                     txbEmail.Text = nuevo.Email;
                     txbTelefono.Text = nuevo.Telefono;
                     txbUsername.Text = nuevo.NombreUsuario;
+                    txbPass.Attributes["value"] = nuevo.Clave;
+                    txbPass2.Attributes["value"] = nuevo.Clave;
                     txbPass.Text = nuevo.Clave;
                     txbPass2.Text = nuevo.Clave;
+
                     ddlTipo.Items.FindByValue(nuevo.Tipo.ID.ToString()).Selected = true;
                 }
             }

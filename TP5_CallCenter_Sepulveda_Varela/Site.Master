@@ -55,12 +55,10 @@
                   <a class="nav-link" href="/Contact">Contacto</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" onclick="" >Cerrar sesión</a>
+                  <a class="nav-link" href="/Login">Cerrar sesión</a>
                 </li>
               </ul>
               <div class="d-flex">
-                <input class="form-control me-2" style="width:300px" type="search" placeholder="Search" aria-label="Nº de Ticket">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
               </div>
             </div>
           </div>

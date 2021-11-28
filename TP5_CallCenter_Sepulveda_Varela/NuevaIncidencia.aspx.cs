@@ -19,6 +19,11 @@ namespace TP5_CallCenter_Sepulveda_Varela
         {
             if(!IsPostBack)
             {
+                if (Session["UserID"] == null)
+                {
+                    Session.Add("Error", "No hay un usuario logueado");
+                    Response.Redirect("Error.aspx", false);
+                }
                 Nuevo.IDTicket = (int)Session["TID"];
                 lblIncidencia.Text = "Nueva incidencia - Ticket " + Nuevo.IDTicket.ToString();
                 cargar_tecnico();

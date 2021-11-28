@@ -58,7 +58,7 @@ namespace Servicios
             AccesoDB Datos = new AccesoDB();
             try
             {
-                Datos.SetearComando("SELECT T.ID as TID, T.TITULO as TTitulo, T.FECHA_CREACION as FCreacion, T.FECHA_CIERRE as FCierre, C.NOMBRE as CNombre, C.CUIT as CCuit, T.IDESTADO AS TEID, E.NOMBRE as Estado FROM TICKETS T INNER JOIN ESTADOS E ON T.IDESTADO=E.ID INNER JOIN CLIENTES C ON T.IDCLIENTE=C.ID");
+                Datos.SetearComando("SELECT T.ID as TID, T.TITULO as TTitulo, T.IDUSUARIO as UserID, T.FECHA_CREACION as FCreacion, T.FECHA_CIERRE as FCierre, C.NOMBRE as CNombre, C.CUIT as CCuit, T.IDESTADO AS TEID, E.NOMBRE as Estado FROM TICKETS T INNER JOIN ESTADOS E ON T.IDESTADO=E.ID INNER JOIN CLIENTES C ON T.IDCLIENTE=C.ID");
                 Datos.LecturaDB();
 
                 while (Datos.Lector.Read())
@@ -84,8 +84,12 @@ namespace Servicios
                             Aux.PCliente.Cuit = (string)Datos.Lector["CCuit"];
                         }
 
+                        if (!(Datos.Lector["UserID"] is DBNull))
+                        {
+                            Aux.PResponsable = new Usuario();
+                            Aux.PResponsable.ID = Convert.ToInt32(Datos.Lector["UserID"]);
+                        }
                     }
-
                     Lista.Add(Aux);
                 }
                 return Lista;

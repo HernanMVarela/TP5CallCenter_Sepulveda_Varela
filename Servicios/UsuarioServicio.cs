@@ -124,5 +124,32 @@ namespace Servicios
             }
         }
 
+        public int Login(Usuario User)
+        {
+            AccesoDB Datos = new AccesoDB();
+            try
+            {
+                Datos.SetearComando("SELECT U.ID AS USERID, U.NOMBREUSUARIO AS UUSER, U.CLAVE AS UCLAVE FROM Usuarios U WHERE U.NombreUsuario = @USER AND U.Clave = @PASS AND U.ESTADO=1");
+                Datos.setearParametros("@USER", User.NombreUsuario);
+                Datos.setearParametros("@PASS", User.Clave);
+                Datos.LecturaDB();
+
+                while (Datos.Lector.Read())
+                {
+                    User.ID = Convert.ToInt32(Datos.Lector["USERID"]);
+                    return User.ID;
+                }
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Datos.CerrarConexion();
+            }
+        }
+
     }
 }
