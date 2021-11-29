@@ -18,10 +18,14 @@
                         <asp:Button ID="btnAgregarTecnico" CssClass="btn btn-info m-2 mb-3" OnClick="btnAgregarTecnico_Click" runat="server" Text="Agregar"/>
                         <asp:DropDownList ID="ddlTecnico" CssClass="m-2 pb-2 pt-2" runat="server"></asp:DropDownList>
                         <asp:Button ID="btnModificarTecnico" CssClass="btn btn-info m-2" OnClick="btnModificarTecnico_Click" runat="server" Text="Modificar"/>
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                        <ContentTemplate>
                         <div class="col-12 m-2 d-flex justify-content-evenly">
-                        <asp:CheckBox ID="chbBajaTecnico" runat="server" />
-                        <asp:Button ID="btnBajaTecnico" CssClass="btn btn-outline-danger text-black fw-bold m-2 w-75" runat="server" Text="Eliminar"/>
+                           <asp:CheckBox ID="chbBajaTecnico" AutoPostBack="true" OnCheckedChanged="chbBajaTecnico_CheckedChanged" runat="server" />
+                           <asp:Button ID="btnBajaTecnico" CssClass="btn btn-outline-danger text-black fw-bold m-2 w-75" OnClick="btnBajaTecnico_Click" runat="server" Text="Eliminar"/>
                         </div>
+                        </ContentTemplate>  
+                        </asp:UpdatePanel>
                         <asp:Label ID="lblConfTecnico" runat="server" Text="Tilde para confirmar eliminación"></asp:Label>
                     </div>
                  </div>
@@ -35,10 +39,14 @@
                         <asp:Button ID="btnAgregarUsuario" CssClass="btn btn-info m-2 mb-3" OnClick="btnAgregarUsuario_Click" runat="server" Text="Agregar"/>
                         <asp:DropDownList ID="ddlUsuario" CssClass="m-2 pb-2 pt-2" runat="server"></asp:DropDownList>
                         <asp:Button ID="btnModificarUsuario" CssClass="btn btn-info m-2" OnClick="btnModificarUsuario_Click" runat="server" Text="Modificar"/>
+                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                        <ContentTemplate>
                         <div class="col-12 m-2 d-flex justify-content-evenly">
-                        <asp:CheckBox ID="chbBajaUsuario" OnCheckedChanged="chbBajaUsuario_CheckedChanged" AutoPostBack="true" runat="server" />
-                        <asp:Button ID="btnBajaUsuario" CssClass="btn btn-outline-danger text-black fw-bold m-2 w-75" runat="server" Text="Eliminar"/>  
+                           <asp:CheckBox ID="chbBajaUsuario" OnCheckedChanged="chbBajaUsuario_CheckedChanged" AutoPostBack="true" runat="server" />
+                           <asp:Button ID="btnBajaUsuario" CssClass="btn btn-outline-danger text-black fw-bold m-2 w-75" OnClick="btnBajaUsuario_Click" runat="server" Text="Eliminar"/>  
                         </div>
+                        </ContentTemplate>  
+                        </asp:UpdatePanel>
                         <asp:Label ID="lblConfUsuario" runat="server" Text="Tilde para confirmar eliminación"></asp:Label>
                     </div>
                  </div>

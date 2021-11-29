@@ -85,7 +85,7 @@ namespace Servicios
 
             try
             {
-                datos.SetearComando("insert into USUARIOS (NombreUsuario, Clave, Nombre, Apellido, Mail, Telefono, IDTipo) values (@NombreUsuario, @Clave, @Nombre, @Apellido, @Email, @Telefono, @IDTipo)");
+                datos.SetearComando("insert into USUARIOS (NombreUsuario, Clave, Nombre, Apellido, Mail, Telefono, IDTipo, Estado) values (@NombreUsuario, @Clave, @Nombre, @Apellido, @Email, @Telefono, @IDTipo, @Estado)");
                 datos.setearParametros("@NombreUsuario", nuevo.NombreUsuario);
                 datos.setearParametros("@Clave", nuevo.Clave);
                 datos.setearParametros("@Nombre", nuevo.Nombre);
@@ -93,6 +93,7 @@ namespace Servicios
                 datos.setearParametros("@Email", nuevo.Email);
                 datos.setearParametros("@Telefono", nuevo.Telefono);
                 datos.setearParametros("@IDTipo", nuevo.Tipo.ID);
+                datos.setearParametros("@Estado", true);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
@@ -107,7 +108,7 @@ namespace Servicios
 
             try
             {
-                datos.SetearComando("update USUARIOS set NombreUsuario=@NombreUsuario, Clave=@Clave, Nombre=@Nombre, Apellido=@Apellido, Mail=@Mail, Telefono=@Telefono, IDTipo=@IDTipo where ID=@Id");
+                datos.SetearComando("update USUARIOS set NombreUsuario=@NombreUsuario, Clave=@Clave, Nombre=@Nombre, Apellido=@Apellido, Mail=@Mail, Telefono=@Telefono, IDTipo=@IDTipo, Estado=@Estado where ID=@Id");
                 datos.setearParametros("@ID", modify.ID);
                 datos.setearParametros("@Nombre", modify.Nombre);
                 datos.setearParametros("@Apellido", modify.Apellido);
@@ -116,12 +117,31 @@ namespace Servicios
                 datos.setearParametros("@IDTipo", modify.Tipo.ID);
                 datos.setearParametros("@NombreUsuario", modify.NombreUsuario);
                 datos.setearParametros("@Clave", modify.Clave);
+                datos.setearParametros("@Estado", true);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        public void BorrarDB(int id)
+        {
+            AccesoDB datos = new AccesoDB();
+
+            try
+            {
+                datos.SetearComando("update USUARIOS set ESTADO=@Estado where ID = @ID");
+                datos.setearParametros("@ID", id);
+                datos.setearParametros("@Estado", false);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         public int Login(Usuario User)

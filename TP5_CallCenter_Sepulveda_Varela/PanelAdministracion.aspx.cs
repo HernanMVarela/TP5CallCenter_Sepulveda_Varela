@@ -48,7 +48,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             LTec = TechService.Listar();
             try
             {
-                ddlTecnico.DataSource = LTec;
+                ddlTecnico.DataSource = LTec.FindAll(x => x.Estado == true);
                 ddlTecnico.DataTextField = "NombreCompleto";
                 ddlTecnico.DataValueField = "ID";
                 ddlTecnico.DataBind();
@@ -84,7 +84,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             LUser = UserService.Listar();
             try
             {
-                ddlUsuario.DataSource = LUser;
+                ddlUsuario.DataSource = LUser.FindAll(x => x.Estado == true);
                 ddlUsuario.DataTextField = "NombreCompleto";
                 ddlUsuario.DataValueField = "ID";
                 ddlUsuario.DataBind();
@@ -98,16 +98,19 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         protected void btnAgregarTecnico_Click(object sender, EventArgs e)
         {
+            Session["ModTecnico"] = null;
             Response.Redirect("AltaTecnico.aspx", false);
         }
 
         protected void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
+            Session["ModUsuario"] = null;
             Response.Redirect("ControlUsuarios.aspx", false);
         }
 
         protected void btnAgregarCliente_Click(object sender, EventArgs e)
         {
+            Session["ModCliente"] = null;
             Response.Redirect("AltaCliente.aspx", false);
         }
 
@@ -172,7 +175,29 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         protected void chbBajaUsuario_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (btnBajaUsuario.Enabled == false)
+            {
+                btnBajaUsuario.Enabled = true;
+                btnBajaUsuario.CssClass = "btn btn-danger text-black fw-bold m-2 w-75";
+            }
+            else
+            {
+                btnBajaUsuario.Enabled = false;
+                btnBajaUsuario.CssClass = "btn btn-outline-danger text-black fw-bold m-2 w-75";
+            }
+        }
+        protected void btnBajaUsuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UsuarioServicio UserService = new UsuarioServicio();
+                UserService.BorrarDB(int.Parse(ddlUsuario.SelectedItem.Value));
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
+            }
         }
 
         protected void chbBajaCliente_CheckedChanged(object sender, EventArgs e)
@@ -188,5 +213,35 @@ namespace TP5_CallCenter_Sepulveda_Varela
                 btnBajaCliente.CssClass = "btn btn-outline-danger text-black fw-bold m-2 w-75";
             }
         }
+
+        protected void chbBajaTecnico_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnBajaTecnico.Enabled == false)
+            {
+                btnBajaTecnico.Enabled = true;
+                btnBajaTecnico.CssClass = "btn btn-danger text-black fw-bold m-2 w-75";
+            }
+            else
+            {
+                btnBajaTecnico.Enabled = false;
+                btnBajaTecnico.CssClass = "btn btn-outline-danger text-black fw-bold m-2 w-75";
+            }
+        }
+
+        protected void btnBajaTecnico_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TecnicoServicio TecService = new TecnicoServicio();
+                TecService.BorrarDB(int.Parse(ddlTecnico.SelectedItem.Value));
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
+            }
+        }
+
+        
     }
 }

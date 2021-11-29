@@ -56,6 +56,7 @@ namespace Servicios
                 datos.setearParametros("@Telefono", nuevo.Telefono);
                 datos.setearParametros("@IDEspecialidad", nuevo.EspecialidadTecnico.ID);
                 datos.setearParametros("@Estado", nuevo.Estado);
+                datos.setearParametros("@Estado", true);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
@@ -77,7 +78,7 @@ namespace Servicios
                 datos.setearParametros("@Mail", modify.Email);
                 datos.setearParametros("@Telefono", modify.Telefono);
                 datos.setearParametros("@IDEspecialidad", modify.EspecialidadTecnico.ID);
-                datos.setearParametros("@Estado", modify.Estado);
+                datos.setearParametros("@Estado", true);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
@@ -100,6 +101,24 @@ namespace Servicios
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+
+        }
+
+        public void BorrarDB(int id)
+        {
+            AccesoDB datos = new AccesoDB();
+
+            try
+            {
+                datos.SetearComando("update TECNICOS set ESTADO=@Estado where ID = @ID");
+                datos.setearParametros("@ID", id);
+                datos.setearParametros("@Estado", false);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
 

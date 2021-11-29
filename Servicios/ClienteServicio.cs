@@ -84,7 +84,7 @@ namespace Servicios
                 datos.setearParametros("@Email", nuevo.Email);
                 datos.setearParametros("@Telefono", nuevo.Telefono);
                 datos.setearParametros("@IDTipo", nuevo.Tipo.ID);
-                datos.setearParametros("@Estado", nuevo.Estado);
+                datos.setearParametros("@Estado", true);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
@@ -106,8 +106,8 @@ namespace Servicios
                 datos.setearParametros("@Cuit", modify.Cuit);
                 datos.setearParametros("@Email", modify.Email);
                 datos.setearParametros("@Telefono", modify.Telefono);
-                datos.setearParametros("@IDTipo", modify.Tipo.ID);
-                datos.setearParametros("@Estado", modify.Estado);
+                datos.setearParametros("@IDTipo", modify.Tipo.ID); 
+                datos.setearParametros("@Estado", true);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
