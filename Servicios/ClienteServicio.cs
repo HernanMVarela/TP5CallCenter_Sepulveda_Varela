@@ -116,20 +116,19 @@ namespace Servicios
             }
         }
 
-        public void BorrarDB(Cliente BorrarCli)
+        public void BorrarDB(int id)
         {
             AccesoDB datos = new AccesoDB();
 
             try
             {
                 datos.SetearComando("update CLIENTES set ESTADO=@Estado where ID = @ID");
-                datos.setearParametros("@ID", BorrarCli.ID);
-                datos.setearParametros("@Estado", BorrarCli.Estado);
+                datos.setearParametros("@ID", id);
+                datos.setearParametros("@Estado", false);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 

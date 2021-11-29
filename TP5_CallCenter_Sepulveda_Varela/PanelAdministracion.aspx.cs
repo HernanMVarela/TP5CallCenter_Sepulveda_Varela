@@ -36,6 +36,9 @@ namespace TP5_CallCenter_Sepulveda_Varela
                 cargar_cliente();
                 cargar_tecnico();
                 cargar_usuario();
+                btnBajaCliente.Enabled = false;
+                btnBajaTecnico.Enabled = false;
+                btnBajaUsuario.Enabled = false;
             }
         }
 
@@ -63,7 +66,7 @@ namespace TP5_CallCenter_Sepulveda_Varela
             LClie = CliService.Listar();
             try
             {
-                ddlCliente.DataSource = LClie;
+                ddlCliente.DataSource = LClie.FindAll(x => x.Estado == true);
                 ddlCliente.DataTextField = "RazonSocial";
                 ddlCliente.DataValueField = "ID";
                 ddlCliente.DataBind();
@@ -110,14 +113,23 @@ namespace TP5_CallCenter_Sepulveda_Varela
 
         protected void btnModificarTecnico_Click(object sender, EventArgs e)
         {
-            TecnicoServicio TechService = new TecnicoServicio();
-            Tecnico modificar = new Tecnico();
-            int id = 0;
-            id = int.Parse(ddlTecnico.SelectedItem.Value);
-            LTec = TechService.Listar();
-            modificar = LTec.Find(x => x.ID == id);
-            Session.Add("ModTecnico", modificar);
-            Response.Redirect("AltaTecnico.aspx", false);
+            try
+            {
+                TecnicoServicio TechService = new TecnicoServicio();
+                Tecnico modificar = new Tecnico();
+                int id = 0;
+                id = int.Parse(ddlTecnico.SelectedItem.Value);
+                LTec = TechService.Listar();
+                modificar = LTec.Find(x => x.ID == id);
+                Session.Add("ModTecnico", modificar);
+                Response.Redirect("AltaTecnico.aspx", false);
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
+            }
+            
         }
 
         protected void btnModificarUsuario_Click(object sender, EventArgs e)
@@ -142,6 +154,39 @@ namespace TP5_CallCenter_Sepulveda_Varela
             modificar = LClie.Find(x => x.ID == id);
             Session.Add("ModCliente", modificar);
             Response.Redirect("AltaCliente.aspx", false);
+        }
+
+        protected void btnBajaCliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClienteServicio CliService = new ClienteServicio();
+                CliService.BorrarDB(int.Parse(ddlCliente.SelectedItem.Value));
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
+            }
+        }
+
+        protected void chbBajaUsuario_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void chbBajaCliente_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnBajaCliente.Enabled == false)
+            {
+                btnBajaCliente.Enabled = true;
+                btnBajaCliente.CssClass = "btn btn-danger text-black fw-bold m-2 w-75";
+            }
+            else
+            {
+                btnBajaCliente.Enabled = false;
+                btnBajaCliente.CssClass = "btn btn-outline-danger text-black fw-bold m-2 w-75";
+            }
         }
     }
 }

@@ -227,7 +227,9 @@ SELECT * FROM INCIDENCIAS
 SELECT TOP 1 T.ID as TID FROM TICKETS T ORDER BY ID DESC
 select * from clientes c inner join tipoclientes t on t.id=c.idtipo
 
-select * from TipoCuenta
+select * from Clientes
+
+update CLIENTES set Estado = 1 where id=1013
 
 SELECT T.ID as TID, T.TITULO as TTitulo, T.FECHA_CREACION as FCreacion, T.FECHA_CIERRE as FCierre, C.NOMBRE as CNombre, C.CUIT as CCuit, T.IDESTADO AS TEID, E.NOMBRE as Estado FROM TICKETS T INNER JOIN ESTADOS E ON T.IDESTADO=E.ID INNER JOIN CLIENTES C ON T.IDCLIENTE=C.ID
 
